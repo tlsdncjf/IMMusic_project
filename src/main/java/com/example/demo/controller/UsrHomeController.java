@@ -11,6 +11,9 @@ public class UsrHomeController {
 
 	@Autowired
 	private Rq rq;
+	
+	@Autowired
+	private UsrCrawlingController ucc;
 
 	@RequestMapping("/usr/home/main")
 	public String showMain() {
@@ -22,10 +25,18 @@ public class UsrHomeController {
 
 		return "/usr/home/main2";
 	}
-
+	
 	@RequestMapping("/")
 	public String showRoot() {
 
 		return "redirect:/usr/home/main";
+	}
+	
+	@RequestMapping("/usr/home/test")
+	public String showMain12() {
+
+		ucc.crawl();
+		
+		return "/usr/home/test";
 	}
 }

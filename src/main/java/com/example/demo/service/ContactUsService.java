@@ -52,7 +52,7 @@ public class ContactUsService {
 
 	public void sendjoinMessage(String cellphoneNum, String name) {
 
-		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSPXAU1FTBQFE6H", "MB2MMY4IRIOTXHMUWHEF8AEWD4HLWKSR", "https://api.coolsms.co.kr");
+		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSW9EFTDYNNQEYA", "JUHJQDE2B4ROZTNE6A7V9FPVMCTYNHXE", "https://api.coolsms.co.kr");
 		
 		LocalDateTime now = LocalDateTime.now();
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -60,10 +60,11 @@ public class ContactUsService {
 	    
 	    // Message 패키지가 중복될 경우 net.nurigo.sdk.message.model.Message로 치환하여 주세요
 		Message message = new Message();
-		message.setFrom("01076070903");
+		
+		message.setFrom("01030841288");
 		message.setTo(cellphoneNum);
-		message.setText("[IMMusic&Art] " + timestamp + "\n" + name + "님의 연주자 가입신청이 완료되었습니다.\n" + "검토 후 연락드리겠습니다.");
- 
+		message.setText( name + "님의 연주자 가입신청이 완료되었습니다.\n" + "검토 후 연락드리겠습니다.\n" + "- IMMusic&Art -");
+		
 		try {
 		  // send 메소드로 ArrayList<Message> 객체를 넣어도 동작합니다!
 		  messageService.send(message);
@@ -78,15 +79,14 @@ public class ContactUsService {
 	
 	public void sendsignupMessage(String cellphoneNum, String name) {
 		
-		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSPXAU1FTBQFE6H", "MB2MMY4IRIOTXHMUWHEF8AEWD4HLWKSR", "https://api.coolsms.co.kr");
+		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSW9EFTDYNNQEYA", "JUHJQDE2B4ROZTNE6A7V9FPVMCTYNHXE", "https://api.coolsms.co.kr");
 		
 		// Message 패키지가 중복될 경우 net.nurigo.sdk.message.model.Message로 치환하여 주세요
 		Message message = new Message();
-
-		message.setFrom("발신자번호");
+		
+		message.setFrom("01030841288");
 		message.setTo(cellphoneNum);
-		message.setText("[IMMusic&Art]\n" + name + "님의 연주문의가 완료되었습니다.\n" + "검토 후 연락드리겠습니다.");
-		message.setSubject(timestamp); // 제목 설정
+		message.setText(name + "님의 연주문의가 완료되었습니다.\n" + "검토 후 연락드리겠습니다.\n" + "- IMMusic&Art -");
 		
 		try {
 		  // send 메소드로 ArrayList<Message> 객체를 넣어도 동작합니다!

@@ -37,12 +37,7 @@
 
 			<div class="more-info " id="more-info-js">
 
-				<p>재즈 피아니스트 허대욱(HEO daeuk)은 클래식 기타리스트인 아버지 허병훈과 누나 허원경의 영향하에 6세에 피아노를 시작하고, 아버지의 유학길을 따라
-					유년시절을 스페인에서 보내면서 고전에서 현대, 민속음악까지 다양한 장르의 음악을 두루 접하게 된다. 15살에 모차르트의
-					교향곡 N.40 K.550을 듣고 깊은 영감을 받은 그는 작곡을 결심한다. 대학시절 프랑스 인상파 작곡가 드뷔시의 음악에
-					매료되며 동시에 재즈에 강한 흥미를 느낀 그는 대학 졸업과 동시에 프랑스로 유 학을 떠난다. 프랑스 에브리국립음악원(Le
-					conservatoire nationale de musique, de danse d‘Evry) 재즈과에 입학한 그는 불과
-					1년 만에 수석으로 조기졸업하며 여러 교수들로부터 기대를 한 몸에 모은다. 
+				<p>재즈 피아니스트 허대욱은 어릴 적부터 클래식 음악에 둘러싸인 가정에서 자라며 피아노를 연주하기 시작했다. 모차르트의 작품으로부터 영감을 받아 작곡을 시작한 그는 프랑스로 유학하여 재즈를 공부하고, 뛰어난 재능으로 주목받았다. 그의 음반은 국제적으로도 호평을 받으며 프랑스와 국제적인 무대에서 연주하였고, 한국인 최초로 프랑스의 대표 레이블에서 발매되기도 했다. 또한, 피아노 독주 음반을 통해 자신만의 서정성을 드러내며 음악적인 실험을 이어가고 있다.
 					</p>
 
 
@@ -81,26 +76,25 @@
 			<h3 class="section_suptitle">Profile</h3>
 			<h2 class="section_title">프로필</h2>
 			<div class="section__Text">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
-					quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
-					similique perferendis blanditiis architecto? Ut!</p>
+				<p>허대욱</p>
 			</div>
 		</div>
 
 
-		<div class="border-2 border-red-400">재즈 피아니스트 허대욱(HEO daeuk)은
+		<div class="leading-loose">재즈 피아니스트 허대욱(HEO daeuk)은
 			클래식 기타리스트인 아버지 허병훈과 누나 허원경의 영향하에 6세에 피아노를 시작하고, 아버지의 유학길을 따라 유년시절을
 			스페인에서 보내면서 고전에서 현대, 민속음악까지 다양한 장르의 음악을 두루 접하게 된다. 15살에 모차르트의 교향곡 N.40
 			K.550을 듣고 깊은 영감을 받은 그는 작곡을 결심한다. 대학시절 프랑스 인상파 작곡가 드뷔시의 음악에 매료되며 동시에
 			재즈에 강한 흥미를 느낀 그는 대학 졸업과 동시에 프랑스로 유 학을 떠난다. 프랑스 에브리국립음악원(Le
 			conservatoire nationale de musique, de danse d‘Evry) 재즈과에 입학한 그는 불과
-			1년 만에 수석으로 조기졸업하며 여러 교수들로부터 기대를 한 몸에 모은다. 2006년 유학 가기 전 자작곡들로 이루어진 첫
+			1년 만에 수석으로 조기졸업하며 여러 교수들로부터 기대를 한 몸에 모은다. 
+			<br /><br />2006년 유학 가기 전 자작곡들로 이루어진 첫
 			번째 트리오 음반 &lt;서쪽으로 To The West&gt; 발매, 국내에 유러피언 스타일 재즈피아니스트가 출현한 것
 			아니냐고 할 정도로 재즈계에 신선한 반향을 일으켰었다. 2007년 두 번째 음반 &lt;흩어진 순간 Le Moment
 			Dispérsé&gt;은 더 세련되고 심화된 어법과 연주로 한층 더 성숙한 면모를 보이면서 재즈피아니스트로서의 입지를
 			확고하게 구축한다. 그리고 파리에 정착하면서 2009년 프랑스 Au Sud Du Nord' 재즈 페스티벌과 Jazzy
-			Colors 등에서 초청되어 국제무대에 데뷔한다. 2010년 그의 세 번째 음반&lt;트라이그램 Trigram&gt;은
+			Colors 등에서 초청되어 국제무대에 데뷔한다. 
+			<br /><br />2010년 그의 세 번째 음반&lt;트라이그램 Trigram&gt;은
 			피아노 독주 음반으로, 피아노가 갖는 기술 내용과 자신만의 작곡 세계에 대한 치열한 고민과 분투를 깊이 있게 담아낸 역작으로
 			앞의 두 음반과 마찬가지로 한국대중음악상 최우수 재즈 음반에 노미네이트 되었다. 2012년 허대욱은 베이시스트 요니 젤닉
 			Yoni zelnik. 드러머 마튜 사자랑 Matthieu chazarenc 과 ' 허대욱 트리오' 를 결성 네 번째 음반
@@ -109,7 +103,8 @@
 			음반&lt;셰르파 Sherpa&gt;를 프랑스 대표 레이블인 크리스탈 레코드 Cristal Records에서 한국인 최초로
 			발매, 프랑스 jazz magazine과 jazz citizen에서 " 필히 들어야 하는 음반과 새로운 발견" 으로
 			선정된다. 이후 벨기에 Musiq3 페스티벌, 멕시코 국립극장, Morelia music festival 등 각국 투어 연주
-			러브콜을 받기에 이른다.2023년 여섯 번째 음반 &lt;내일이면 봄일까 Will it be soring
+			러브콜을 받기에 이른다.
+			<br /><br />2023년 여섯 번째 음반 &lt;내일이면 봄일까 Will it be soring
 			tomorrow&gt;는 허대욱이 갖는 서정성은 어떻게 나와야하는지를 역설적으로 말해주는 작업으로 피아노 독주만으로
 			녹음했다.</div>
 
@@ -125,28 +120,82 @@
 			<h3 class="section_suptitle">Career</h3>
 			<h2 class="section_title">경력</h2>
 			<div class="section__Text">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
-					quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
-					similique perferendis blanditiis architecto? Ut!</p>
+				<p>주요 페스티벌 및 공연</p>
 			</div>
 		</div>
 
-		<div class=" border-2 border-yellow-300">주요 페스티벌 및 공연 2005 자라섬
-			국재 재즈페스티벌 2009 재지컬러스 페스티벌(파리) 2009 헝가리 문화원(파리) 피아노 솔로 2009 Au sud du
-			nord 재즈페스티벌 (프랑스) 2012 마포아트센터 허대욱 트리오 단독공연 2012 한국문화원(파리) 2013 자라섬
-			국제재즈 페스티벌 2013 세종문화회관 재즈 페스티벌 2013 프랑스 문화원 (파리) 2013 프랑스문화원 광주.부산
-			2014 LIG문화재단 연간 아티스트 선정 2014 LIG art center 피아노 솔로. 서울.부산 LIG art
-			center HEO trio with 스트링 오케스트라.서울.부산 2015 마드리드 한국문화원 2017 자라섬 국재 재즈
-			패스티벌 HEO trio 2018 Musiq3 festival(벨기에)HEO trio 2018 Acapulco
-			festival(멕시코) HEO trio 아카풀코 뮤직 페스티벌 2018 Morelia music festival(멕시코)
-			HEO trio 모렐리아 뮤직 페스티벌 2018 멕시코 예술 국립극장 HEO trio 2019 태화강 국제 재즈 페스티벌
-			HEO trio 2019 재즈토닉 페스티벌 HEO trio 2019 HEO trio 음반 발매 공연(파리)Sunside
-			2019 헝가리 부다페스트 뮤직센터 HEO trio 2019 취리히 미츠 서울 HEO trio 2020 연극 박정자의
-			“노래처럼 말해줘” 음악감독 2020 링컨 케네디 센터(미국) (잠정연기)HEO trio 2021 빔하우스(네덜란드) HEO
-			trio 2023 하우스콘서트 24시간 프로젝트. 더 하우스콘서트 함안문화예술회관 허대욱 피아노 솔로 2023 세계무용축제
-			“감각자료” 유빈댄스 음악감독 2023 자라섬재즈페스티벌 HEO trio 2023 석사천재즈페스티벌 HEO trio 2023
-			자라섬x데블스도어 재즈페스티벌 HEO trio 2023 서울스테이션11(서울문화재단) HEO trio 2024 paris
+		<div class=" border-2 border-yellow-300">
+		2005 자라섬 국제 재즈페스티벌 
+		<br />
+		2009 재지컬러스 페스티벌(파리) 
+			<br />
+		2009 헝가리 문화원(파리) 피아노 솔로
+			<br />
+		 2009 Au sud du
+			nord 재즈페스티벌 (프랑스) 
+				<br />
+			2012 마포아트센터 허대욱 트리오 단독공연 
+				<br />
+			2012 한국문화원(파리) 
+				<br />
+			2013 자라섬
+			국제재즈 페스티벌 
+				<br />
+			2013 세종문화회관 재즈 페스티벌 
+				<br />
+			2013 프랑스 문화원 (파리) 
+				<br />
+			2013 프랑스문화원 광주.부산
+				<br />
+			2014 LIG문화재단 연간 아티스트 선정 
+				<br />
+			2014 LIG art center 피아노 솔로. 서울.부산 LIG art
+			center HEO trio with 스트링 오케스트라.서울.부산 
+				<br />
+			2015 마드리드 한국문화원 2017 자라섬 국재 재즈
+			패스티벌 HEO trio 
+				<br />
+			2018 Musiq3 festival(벨기에)HEO trio 2018 Acapulco
+			festival(멕시코) HEO trio 아카풀코 뮤직 페스티벌 
+				<br />
+			2018 Morelia music festival(멕시코)
+			HEO trio 모렐리아 뮤직 페스티벌 
+				<br />
+			2018 멕시코 예술 국립극장 HEO trio 
+				<br />
+			2019 태화강 국제 재즈 페스티벌
+			HEO trio 
+				<br />
+			2019 재즈토닉 페스티벌 HEO trio 
+				<br />
+			2019 HEO trio 음반 발매 공연(파리)Sunside
+				<br />
+			2019 헝가리 부다페스트 뮤직센터 HEO trio 
+				<br />
+			2019 취리히 미츠 서울 HEO trio 
+				<br />
+			2020 연극 박정자의
+			“노래처럼 말해줘” 음악감독 
+				<br />
+			2020 링컨 케네디 센터(미국) (잠정연기)HEO trio 
+				<br />
+			2021 빔하우스(네덜란드) HEO
+			trio 
+				<br />
+			2023 하우스콘서트 24시간 프로젝트. 더 하우스콘서트 함안문화예술회관 허대욱 피아노 솔로
+				<br />
+			 2023 세계무용축제
+			“감각자료” 유빈댄스 음악감독 
+				<br />
+			2023 자라섬재즈페스티벌 HEO trio 
+				<br />
+			2023 석사천재즈페스티벌 HEO trio 
+				<br />
+			2023 자라섬x데블스도어 재즈페스티벌 HEO trio 
+				<br />
+			2023 서울스테이션11(서울문화재단) HEO trio
+				<br />
+			 2024 paris
 			La salle gaveau HEO trio 방송 MBC radio 라이브 피아노 트리오 Naver on stage 프렌치
 			트리오 KBS 문화지대 허대욱편 EBS 공감 피아노 솔로 EBS 공감 피아노 허대욱 트리오 EBS 공감 HEO trio</div>
 	</div>
@@ -221,12 +270,14 @@
 	display: flex;
 	justify-content: end;
 	align-items: center;
+    margin-top: 10px;
 	/*  	margin-right: 10px;  */
 }
 
 .social_iteam:hover {
-	background-color: #b3a78f;
-	color: #fff;
+/* 	background-color: #b3a78f; */
+/* 	color: #fff; */
+	color: #b3a78f;
 }
 </style>
 
@@ -454,7 +505,7 @@ body {
 	align-self: center;
 	display: flex;
 	flex-direction: column;
-	animation: scaleDown 2.8s ease 1s;
+	animation: scaleDown 2.3s ease 1s;
 /* 	-webkit-animation: scaleDown 4s ease 1s; */
 }
 
@@ -540,7 +591,7 @@ body {
 	margin-right: auto;
 	align-self: flex-start;
 	overflow: hidden;
-	animation: reveal-info 0.7s ease 2s;
+	animation: reveal-info 0.7s ease 1.7s;
 /* 	-webkit-animation: reveal-info 2s ease 2s; */
 }
 

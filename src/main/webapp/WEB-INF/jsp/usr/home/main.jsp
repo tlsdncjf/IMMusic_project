@@ -657,7 +657,7 @@ hr {
 				</div>
 
 				<div class="text-center mt-24">
-					<a class="btn btn-outline" href="/usr/press">소식 더보기</a>
+					<a class="btn btn-outline" href="/usr/press/list">소식 더보기</a>
 				</div>
 			</section>
 

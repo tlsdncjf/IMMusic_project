@@ -35,6 +35,8 @@ body {
 
 .section-greet {
 	padding-bottom: 200px;
+	background-color: rgba(255, 255, 255, 0.8);
+	
 }
 
 .section-greet>div:nth-child(2) {
