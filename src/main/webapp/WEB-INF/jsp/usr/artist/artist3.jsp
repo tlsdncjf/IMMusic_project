@@ -138,7 +138,7 @@
 					</div>
 					<div class="logos">
 						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 6.jpg">
+							<img class="logo_imge" src="/resource/음악앨범 7.jpg">
 							<div class="card-prof2">스페인의 인상</div>
 						</div>
 

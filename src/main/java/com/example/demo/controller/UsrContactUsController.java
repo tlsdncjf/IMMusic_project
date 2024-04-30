@@ -34,8 +34,6 @@ public class UsrContactUsController {
 	@RequestMapping("/usr/contactUs/concert")
 	public String contactUsconcert() {
 
-		List<Blog> Blog = blog.crawl();
-		
 		return "usr/contactUs/concert";
 	}
 	

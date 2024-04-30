@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class Blog {
 	private String post_date;
 	private String post_url;
-	private String post_img;
 	private String post_title;
 	private String post_content;
 }

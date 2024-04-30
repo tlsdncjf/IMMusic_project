@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.vo.Rq;
@@ -16,8 +17,10 @@ public class UsrHomeController {
 	private UsrCrawlingController ucc;
 
 	@RequestMapping("/usr/home/main")
-	public String showMain() {
+	public String showMain(Model model) {
 
+		model.addAttribute("blog", ucc.crawl());
+		
 		return "/usr/home/main";
 	}
 	@RequestMapping("/usr/home/main2")
@@ -32,11 +35,11 @@ public class UsrHomeController {
 		return "redirect:/usr/home/main";
 	}
 	
-	@RequestMapping("/usr/home/test")
-	public String showMain12() {
+	@RequestMapping("/usr/home/main1")
+	public String showMain12(Model model) {
 
-		ucc.crawl();
+		model.addAttribute("blog", ucc.crawl());
 		
-		return "/usr/home/test";
+		return "/usr/home/main1";
 	}
 }

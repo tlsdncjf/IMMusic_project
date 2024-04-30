@@ -198,7 +198,10 @@
 				<img class="logo_imge " src="/resource/음악앨범 5.jpg">
 				<div class="card-prof2">To The West</div>
 			</div>
-
+			<div class="logo-items ">
+				<img class="logo_imge" src="/resource/음악앨범 6.png">
+				<div class="card-prof2">sherpa</div>
+			</div>
 
 		</div>
 	</div>
@@ -299,11 +302,10 @@
 </style>
 
 <style>
-<!--
-앨범 -->.logo_imge {
+.logo_imge {
 	display: block;
-	max-width: 100%;
-	height: auto;
+	max-width: 150px;
+	height: 150px;
 }
 
 .logos {

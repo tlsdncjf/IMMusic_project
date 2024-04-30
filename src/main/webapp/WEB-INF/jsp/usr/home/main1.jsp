@@ -84,35 +84,6 @@ hr {
 	line-height: 1;
 }
 
-.intro__title>a {
-	position: relative;
-}
-
-.intro__title>a::before {
-	transform: scaleX(0);
-	transform-origin: bottom right;
-}
-
-.intro__title>a:hover::before {
-	transform: scaleX(1);
-	transform-origin: bottom left;
-}
-
-.intro__title>a::before {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	inset: 0 0 0 0;
-	/*   background: hsl(200 100% 80%); */
-	background: rgba(242, 237, 226, 0.3);
-	z-index: 0;
-	transition: transform .3s ease;
-}
-
 .intro__title:after {
 	content: '';
 	display: block;
@@ -286,12 +257,10 @@ hr {
 	width: 55px;
 	height: 55px;
 	padding: 12px 10px;
-	/* 	background-color: #fce38a; */
-	background-color: #f2ede2;
+	background-color: #fce38a;
 	text-decoration: none;
 	border-right: 1px solid #f9bd87;
-	/* 	color: #f38181; */
-	color: black;
+	color: #f38181;
 	font-size: 30px;
 	line-height: 1;
 	transition: background .1s linear, color .1s linear;
@@ -308,9 +277,8 @@ hr {
 }
 
 .social_iteam:hover {
-	/* 	background-color: #f38181; */
-	/* 	color: #fff; */
-	color: #b3a78f;
+	background-color: #f38181;
+	color: #fff;
 }
 
 .card-name {
@@ -333,7 +301,7 @@ hr {
 
 .card-prof2 {
 	color: #999;
-	font-size: 12px;
+	font-size: 20px;
 	font-style: italic;
 	font-weight: 300px;
 	padding-top: 10px;
@@ -348,36 +316,35 @@ hr {
 }
 
 .works-item {
-	/* 	position: relative; */
-	/* 	background: linear-gradient(to bottom, #f38181, #fce38a); */
-	/* 	overflow: hidden; */
-	
+	position: relative;
+	background: linear-gradient(to bottom, #f38181, #fce38a);
+	overflow: hidden;
 }
 
 .works-item:hover .work__image {
-	/* 	opacity: .1; */
-	
+	opacity: .1;
 }
 
-/* .works-item:hover .work-info { */
-/* 	transform: translateY(-50%); */
-/* 	opacity: 1; */
-/* } */
+.works-item:hover .work-info {
+	transform: translateY(-50%);
+	opacity: 1;
+}
 
-/* .work-info { */
-/* 	padding: 0 15px; */
-/* 	width: 100%; */
-/* 	position: absolute; */
-/* 	top: 50%; */
-/* 	left: 0; */
-/* 	z-index: 1; */
-/* 	opacity: 0; */
-/* 	transform: translate3d(0, -50%, 0); */
-/* 	transform: translateY(-500px); */
-/* 	text-align: center; */
-/* 	transition: opacity .2s linear; */
-/* 	transition: .7s; */
-/* } */
+.work-info {
+	padding: 0 15px;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	transform: translate3d(0, -50%, 0);
+	transform: translateY(-500px);
+	text-align: center;
+	transition: opacity .2s linear;
+	transition: .7s;
+}
+
 .work__image {
 	display: block;
 	transition: opacity .2s linear;
@@ -406,8 +373,8 @@ hr {
 
 .logo_imge {
 	display: block;
-	max-width: 150px;
-	height: 150px;
+	max-width: 100%;
+	height: auto;
 }
 
 .logos {
@@ -418,10 +385,9 @@ hr {
 }
 
 .logo-items {
-	padding: 0 15px;
+	padding: 15px 0 25px 0;
 }
 
-/* 블로그 크롤링 부분 */
 tr {
 	position: relative;
 }
@@ -447,25 +413,6 @@ tr:hover {
 tr > td {
 	text-align: left;
 	padding: 15px 0px;
-}
-
-/* 더보기 */
-.button-form {
-	background-color: #f2ede2;
-	color: black;
-	padding: 20px 15px;
-	border: 1px solid #b3a78f;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 0.8rem;
-}
-
-.button-form1 {
-	border: none;
-}
-
-.button-form:hover {
-	background-color: #b3a78f;
 }
 
 @media ( max-width : 1230px) {
@@ -608,12 +555,9 @@ tr > td {
 
 					<div class="section_heder">
 						<h3 class="section_suptitle">IMMusic & Art</h3>
-						<h2 class="section_title">주요 뉴스 및 공연 소식</h2>
+						<h2 class="section_title">News & Show</h2>
 						<div class="section__Text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Ab nulla recusandae quam dolor quod sapiente doloremque
-								asperiores quisquam amet quaerat nam officiis odio provident
-								aspernatur natus at ex laudantium debitis.</p>
+							<p>주요 뉴스 및 공연 소식</p>
 						</div>
 					</div>
 
@@ -653,7 +597,7 @@ tr > td {
 				</div>
 
 				<div class="text-center mt-24">
-					<a class="button-form" href="/usr/press/list">소식 더보기</a>
+					<a class="btn btn-outline" href="/usr/press/list">소식 더보기</a>
 				</div>
 			</section>
 
@@ -661,7 +605,7 @@ tr > td {
 				<div class="container">
 					<div class="section_heder">
 						<h3 class="section_suptitle">Who we are</h3>
-						<h2 class="section_title">아티스트</h2>
+						<h2 class="section_title">아티스트 소개</h2>
 						<div class="section__Text">
 							<!-- 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p> -->
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -676,8 +620,7 @@ tr > td {
 							<div class="card__item1">
 								<div class="inner-card">
 									<div class="card-imag">
-										<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png"
-											alt="Изображение"></a>
+										<img src="/resource/허원경 프로필사진.png" alt="Изображение">
 										<div class="card_text">
 											<div class="social">
 												<a href="#" class="social_iteam" target="_blank"> <i
@@ -685,7 +628,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -694,9 +637,7 @@ tr > td {
 									</div>
 								</div>
 								<div class="card-info">
-									<div class="card-name">
-										<a class=" hover:text-gray-300" href="/usr/artist3">허원경</a>
-									</div>
+									<div class="card-name">허원경</div>
 									<div class="card-prof">리더(클래식 기타)</div>
 								</div>
 							</div>
@@ -712,7 +653,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -738,7 +679,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -767,7 +708,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -792,7 +733,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -817,7 +758,7 @@ tr > td {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
+													class="fab fa-pinterest-p"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -834,9 +775,8 @@ tr > td {
 					</div>
 
 
-					<div class="text-center  mt-24">
-						<a class="button-form button-form1" href="/usr/artist">아티스트
-							더보기</a>
+					<div class="text-center mt-24">
+						<a class="btn btn-outline" href="/usr/artist">아티스트 더보기</a>
 					</div>
 			</section>
 
@@ -876,11 +816,7 @@ tr > td {
 							<div class="card-prof2">To The West</div>
 						</div>
 						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 6.png">
-							<div class="card-prof2">sherpa</div>
-						</div>
-						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 7.jpg">
+							<img class="logo_imge" src="/resource/음악앨범 6.jpg">
 							<div class="card-prof2">스페인의 인상</div>
 						</div>
 
@@ -905,30 +841,55 @@ tr > td {
 					<div class="works__col">
 						<div class="works-item">
 							<img class="work__image" src="/resource/공연사진.jpg" alt="">
-							<!-- 							<div class="work-info"> -->
-							<!-- 								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i> -->
-							<!-- 								</a> -->
-							<!-- 								<div class="work__title">creat infotr hurntd</div> -->
-							<!-- 								<div class="works__text">Lorem ipsum dolor sit</div> -->
-							<!-- 							</div> -->
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 						<div class="works-item">
 							<img class="work__image" src="/resource/무대사진.jpg" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 					</div>
 					<div class="works__col">
 						<div class="works-item">
-							<img class="work__image" src="/resource/스페인음악여행 연주사진.jpg" alt="">
+							<img class="work__image"
+								src="https://i.postimg.cc/WhcW7SM1/2.jpg" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 					</div>
 					<div class="works__col">
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 					</div>
 					<div class="works__col">
@@ -936,10 +897,22 @@ tr > td {
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
+							<div class="work-info">
+								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+								</a>
+								<div class="work__title">creat infotr hurntd</div>
+								<div class="works__text">Lorem ipsum dolor sit</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -951,48 +924,39 @@ tr > td {
 						<h3 class="section_suptitle">IMMusic & Art</h3>
 						<h2 class="section_title">lates blog</h2>
 					</div>
-
-					<!-- 					블로그 크롤링 -->
 					<table>
-						<colgroup>
-							<col style="width: 10%" />
-							<col style="width: 25%" />
-							<col style="width: 65%" />
-						</colgroup>
-						<!--                 <thead>
+							<colgroup>
+								<col style="width: 10%" />
+								<col style="width: 25%" />
+							    <col style="width: 65%" />
+                </colgroup>
+<!--                 <thead>
                     <tr>
                         <th>날짜</th>
                         <th>제목</th>
                         <th>내용</th>
                     </tr>
                 </thead> -->
-						<tbody>
-							<c:forEach var="blog" items="${blog}">
-								<tr class="mb-5" onclick="redirectToPost('${blog.post_url}')">
-									<td>${blog.post_date}</td>
-									<td>${blog.post_title}</td>
-									<td>${blog.post_content}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+                <tbody>
+                    <c:forEach var="blog" items="${blog}">
+                        <tr class="mb-5"onclick="redirectToPost('${blog.post_url}')">
+                            <td>${blog.post_date}</td>
+                            <td>${blog.post_title}</td>
+                            <td>${blog.post_content}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-
-				</div>
-			</section>
-
-			<script>
-				function redirectToPost(postUrl) {
-					console.log('Redirecting to: ' + postUrl);
-					// var windowFeatures = 'width=800,height=600,resizable=yes,scrollbars=yes';
-					window.open(postUrl, '_blank');
-				}
-			</script>
-
-		</div>
-
-
-	</div>
+<script>
+    function redirectToPost(postUrl) {
+        console.log('Redirecting to: ' + postUrl);
+        // var windowFeatures = 'width=800,height=600,resizable=yes,scrollbars=yes';
+        window.open(postUrl, '_blank');
+    }
+</script>
 </body>
 
 </html>
