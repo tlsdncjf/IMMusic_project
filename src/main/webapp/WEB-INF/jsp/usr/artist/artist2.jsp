@@ -124,80 +124,41 @@
 			</div>
 		</div>
 
-		<div class=" border-2 border-yellow-300">
-		2005 자라섬 국제 재즈페스티벌 
-		<br />
-		2009 재지컬러스 페스티벌(파리) 
-			<br />
-		2009 헝가리 문화원(파리) 피아노 솔로
-			<br />
-		 2009 Au sud du
-			nord 재즈페스티벌 (프랑스) 
-				<br />
-			2012 마포아트센터 허대욱 트리오 단독공연 
-				<br />
-			2012 한국문화원(파리) 
-				<br />
-			2013 자라섬
-			국제재즈 페스티벌 
-				<br />
-			2013 세종문화회관 재즈 페스티벌 
-				<br />
-			2013 프랑스 문화원 (파리) 
-				<br />
-			2013 프랑스문화원 광주.부산
-				<br />
-			2014 LIG문화재단 연간 아티스트 선정 
-				<br />
-			2014 LIG art center 피아노 솔로. 서울.부산 LIG art
-			center HEO trio with 스트링 오케스트라.서울.부산 
-				<br />
-			2015 마드리드 한국문화원 2017 자라섬 국재 재즈
-			패스티벌 HEO trio 
-				<br />
-			2018 Musiq3 festival(벨기에)HEO trio 2018 Acapulco
-			festival(멕시코) HEO trio 아카풀코 뮤직 페스티벌 
-				<br />
-			2018 Morelia music festival(멕시코)
-			HEO trio 모렐리아 뮤직 페스티벌 
-				<br />
-			2018 멕시코 예술 국립극장 HEO trio 
-				<br />
-			2019 태화강 국제 재즈 페스티벌
-			HEO trio 
-				<br />
-			2019 재즈토닉 페스티벌 HEO trio 
-				<br />
-			2019 HEO trio 음반 발매 공연(파리)Sunside
-				<br />
-			2019 헝가리 부다페스트 뮤직센터 HEO trio 
-				<br />
-			2019 취리히 미츠 서울 HEO trio 
-				<br />
-			2020 연극 박정자의
-			“노래처럼 말해줘” 음악감독 
-				<br />
-			2020 링컨 케네디 센터(미국) (잠정연기)HEO trio 
-				<br />
-			2021 빔하우스(네덜란드) HEO
-			trio 
-				<br />
-			2023 하우스콘서트 24시간 프로젝트. 더 하우스콘서트 함안문화예술회관 허대욱 피아노 솔로
-				<br />
-			 2023 세계무용축제
-			“감각자료” 유빈댄스 음악감독 
-				<br />
-			2023 자라섬재즈페스티벌 HEO trio 
-				<br />
-			2023 석사천재즈페스티벌 HEO trio 
-				<br />
-			2023 자라섬x데블스도어 재즈페스티벌 HEO trio 
-				<br />
-			2023 서울스테이션11(서울문화재단) HEO trio
-				<br />
-			 2024 paris
-			La salle gaveau HEO trio 방송 MBC radio 라이브 피아노 트리오 Naver on stage 프렌치
-			트리오 KBS 문화지대 허대욱편 EBS 공감 피아노 솔로 EBS 공감 피아노 허대욱 트리오 EBS 공감 HEO trio</div>
+		<div class="leading-loose">
+	2024 La salle gaveau 파리 HEO trio 방송 MBC radio 라이브 피아노 트리오 Naver on stage 프렌치 트리오 KBS 문화지대 허대욱편 EBS 공감 피아노 솔로 EBS 공감 피아노 허대욱 트리오 EBS 공감 HEO trio<br>
+2023 서울스테이션11(서울문화재단) HEO trio<br>
+2023 자라섬x데블스도어 재즈페스티벌 HEO trio <br>
+2023 석사천재즈페스티벌 HEO trio <br>
+2023 자라섬재즈페스티벌 HEO trio <br>
+2023 세계무용축제 “감각자료” 유빈댄스 음악감독 <br>
+2023 하우스콘서트 24시간 프로젝트. 더 하우스콘서트 함안문화예술회관 허대욱 피아노 솔로<br>
+2021 빔하우스(네덜란드) HEO trio <br>
+2020 링컨 케네디 센터(미국) (잠정연기)HEO trio <br>
+2020 연극 박정자의 “노래처럼 말해줘” 음악감독 <br>
+2019 취리히 미츠 서울 HEO trio <br>
+2019 헝가리 부다페스트 뮤직센터 HEO trio <br>
+2019 HEO trio 음반 발매 공연(파리)Sunside<br>
+2019 재즈토닉 페스티벌 HEO trio <br>
+2019 태화강 국제 재즈 페스티벌 HEO trio <br>
+2018 멕시코 예술 국립극장 HEO trio <br>
+2018 Morelia music festival(멕시코) HEO trio 모렐리아 뮤직 페스티벌 <br>
+2018 Acapulco festival(멕시코) HEO trio 아카풀코 뮤직 페스티벌 <br>
+2018 Musiq3 festival(벨기에)HEO trio <br>
+2017 자라섬 국재 재즈 패스티벌 HEO trio <br>
+2015 마드리드 한국문화원 <br>
+2014 LIG문화재단 연간 아티스트 선정 <br>
+2014 LIG art center 피아노 솔로. 서울.부산 LIG art center HEO trio with 스트링 오케스트라.서울.부산 <br>
+2013 프랑스문화원 광주.부산 <br>
+2013 프랑스 문화원 (파리) <br>
+2013 세종문화회관 재즈 페스티벌 <br>
+2013 자라섬 국제재즈 페스티벌 <br>
+2012 한국문화원(파리) <br>
+2012 마포아트센터 허대욱 트리오 단독공연 <br>
+2009 Au sud du nord 재즈페스티벌 (프랑스) <br>
+2009 헝가리 문화원(파리) 피아노 솔로 <br>
+2009 재지컬러스 페스티벌(파리) <br>
+2005 자라섬 국제 재즈페스티벌
+			</div>
 	</div>
 </div>
 
@@ -207,12 +168,12 @@
 		<div class="section_heder">
 			<h3 class="section_suptitle">Albums</h3>
 			<h2 class="section_title">앨범</h2>
-			<div class="section__Text">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
-					quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
-					similique perferendis blanditiis architecto? Ut!</p>
-			</div>
+<!-- 			<div class="section__Text"> -->
+<!-- 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. -->
+<!-- 					Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure -->
+<!-- 					quis corrupti totam, nesciunt nemo voluptatem possimus doloribus -->
+<!-- 					similique perferendis blanditiis architecto? Ut!</p> -->
+<!-- 			</div> -->
 		</div>
 		<div class="logos">
 			<div class="logo-items">

@@ -84,6 +84,35 @@ hr {
 	line-height: 1;
 }
 
+.intro__title>a {
+	position: relative;
+}
+
+.intro__title>a::before {
+	transform: scaleX(0);
+	transform-origin: bottom right;
+}
+
+.intro__title>a:hover::before {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.intro__title>a::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	inset: 0 0 0 0;
+	/*   background: hsl(200 100% 80%); */
+	background: rgba(242, 237, 226, 0.3);
+	z-index: 0;
+	transition: transform .3s ease;
+}
+
 .intro__title:after {
 	content: '';
 	display: block;
@@ -257,10 +286,12 @@ hr {
 	width: 55px;
 	height: 55px;
 	padding: 12px 10px;
-	background-color: #fce38a;
+	/* 	background-color: #fce38a; */
+	background-color: #f2ede2;
 	text-decoration: none;
 	border-right: 1px solid #f9bd87;
-	color: #f38181;
+	/* 	color: #f38181; */
+	color: black;
 	font-size: 30px;
 	line-height: 1;
 	transition: background .1s linear, color .1s linear;
@@ -277,8 +308,9 @@ hr {
 }
 
 .social_iteam:hover {
-	background-color: #f38181;
-	color: #fff;
+	/* 	background-color: #f38181; */
+	/* 	color: #fff; */
+	color: #b3a78f;
 }
 
 .card-name {
@@ -301,7 +333,7 @@ hr {
 
 .card-prof2 {
 	color: #999;
-	font-size: 20px;
+	font-size: 12px;
 	font-style: italic;
 	font-weight: 300px;
 	padding-top: 10px;
@@ -316,35 +348,36 @@ hr {
 }
 
 .works-item {
-	position: relative;
-	background: linear-gradient(to bottom, #f38181, #fce38a);
-	overflow: hidden;
+	/* 	position: relative; */
+	/* 	background: linear-gradient(to bottom, #f38181, #fce38a); */
+	/* 	overflow: hidden; */
+	
 }
 
 .works-item:hover .work__image {
-	opacity: .1;
+	/* 	opacity: .1; */
+	
 }
 
-.works-item:hover .work-info {
-	transform: translateY(-50%);
-	opacity: 1;
-}
+/* .works-item:hover .work-info { */
+/* 	transform: translateY(-50%); */
+/* 	opacity: 1; */
+/* } */
 
-.work-info {
-	padding: 0 15px;
-	width: 100%;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	z-index: 1;
-	opacity: 0;
-	transform: translate3d(0, -50%, 0);
-	transform: translateY(-500px);
-	text-align: center;
-	transition: opacity .2s linear;
-	transition: .7s;
-}
-
+/* .work-info { */
+/* 	padding: 0 15px; */
+/* 	width: 100%; */
+/* 	position: absolute; */
+/* 	top: 50%; */
+/* 	left: 0; */
+/* 	z-index: 1; */
+/* 	opacity: 0; */
+/* 	transform: translate3d(0, -50%, 0); */
+/* 	transform: translateY(-500px); */
+/* 	text-align: center; */
+/* 	transition: opacity .2s linear; */
+/* 	transition: .7s; */
+/* } */
 .work__image {
 	display: block;
 	transition: opacity .2s linear;
@@ -373,8 +406,8 @@ hr {
 
 .logo_imge {
 	display: block;
-	max-width: 100%;
-	height: auto;
+	max-width: 150px;
+	height: 150px;
 }
 
 .logos {
@@ -473,6 +506,24 @@ hr {
 .blog-stat-item i {
 	color: #95e1d3;
 	margin-right: 5px;
+}
+
+.button-form {
+	background-color: #f2ede2;
+	color: black;
+	padding: 20px 15px;
+	border: 1px solid #b3a78f;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.8rem;
+}
+
+.button-form1 {
+	border: none;
+}
+
+.button-form:hover {
+	background-color: #b3a78f;
 }
 
 @media ( max-width : 1230px) {
@@ -615,9 +666,12 @@ hr {
 
 					<div class="section_heder">
 						<h3 class="section_suptitle">IMMusic & Art</h3>
-						<h2 class="section_title">News & Show</h2>
+						<h2 class="section_title">주요 뉴스 및 공연 소식</h2>
 						<div class="section__Text">
-							<p>주요 뉴스 및 공연 소식</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+								Ab nulla recusandae quam dolor quod sapiente doloremque
+								asperiores quisquam amet quaerat nam officiis odio provident
+								aspernatur natus at ex laudantium debitis.</p>
 						</div>
 					</div>
 
@@ -657,7 +711,7 @@ hr {
 				</div>
 
 				<div class="text-center mt-24">
-					<a class="btn btn-outline" href="/usr/press/list">소식 더보기</a>
+					<a class="button-form" href="/usr/press/list">소식 더보기</a>
 				</div>
 			</section>
 
@@ -665,7 +719,7 @@ hr {
 				<div class="container">
 					<div class="section_heder">
 						<h3 class="section_suptitle">Who we are</h3>
-						<h2 class="section_title">아티스트 소개</h2>
+						<h2 class="section_title">아티스트</h2>
 						<div class="section__Text">
 							<!-- 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p> -->
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -680,7 +734,8 @@ hr {
 							<div class="card__item1">
 								<div class="inner-card">
 									<div class="card-imag">
-										<img src="/resource/허원경 프로필사진.png" alt="Изображение">
+										<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png"
+											alt="Изображение"></a>
 										<div class="card_text">
 											<div class="social">
 												<a href="#" class="social_iteam" target="_blank"> <i
@@ -688,7 +743,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -697,7 +752,9 @@ hr {
 									</div>
 								</div>
 								<div class="card-info">
-									<div class="card-name">허원경</div>
+									<div class="card-name">
+										<a class=" hover:text-gray-300" href="/usr/artist3">허원경</a>
+									</div>
 									<div class="card-prof">리더(클래식 기타)</div>
 								</div>
 							</div>
@@ -713,7 +770,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -739,7 +796,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -768,7 +825,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -793,7 +850,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -818,7 +875,7 @@ hr {
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-twitter"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-pinterest-p"></i>
+													class="fab fa-youtube"></i>
 												</a> <a href="#" class="social_iteam" target="_blank"> <i
 													class="fab fa-instagram"></i>
 												</a>
@@ -835,8 +892,9 @@ hr {
 					</div>
 
 
-					<div class="text-center mt-24">
-						<a class="btn btn-outline" href="/usr/artist">아티스트 더보기</a>
+					<div class="text-center  mt-24">
+						<a class="button-form button-form1" href="/usr/artist">아티스트
+							더보기</a>
 					</div>
 			</section>
 
@@ -876,7 +934,11 @@ hr {
 							<div class="card-prof2">To The West</div>
 						</div>
 						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 6.jpg">
+							<img class="logo_imge" src="/resource/음악앨범 6.png">
+							<div class="card-prof2">sherpa</div>
+						</div>
+						<div class="logo-items ">
+							<img class="logo_imge" src="/resource/음악앨범 7.jpg">
 							<div class="card-prof2">스페인의 인상</div>
 						</div>
 
@@ -901,55 +963,30 @@ hr {
 					<div class="works__col">
 						<div class="works-item">
 							<img class="work__image" src="/resource/공연사진.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
+							<!-- 							<div class="work-info"> -->
+							<!-- 								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i> -->
+							<!-- 								</a> -->
+							<!-- 								<div class="work__title">creat infotr hurntd</div> -->
+							<!-- 								<div class="works__text">Lorem ipsum dolor sit</div> -->
+							<!-- 							</div> -->
 						</div>
 						<div class="works-item">
 							<img class="work__image" src="/resource/무대사진.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
 						</div>
 					</div>
 					<div class="works__col">
 						<div class="works-item">
-							<img class="work__image"
-								src="https://i.postimg.cc/WhcW7SM1/2.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
+							<img class="work__image" src="/resource/스페인음악여행 연주사진.jpg" alt="">
 						</div>
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
 						</div>
 					</div>
 					<div class="works__col">
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
 						</div>
 					</div>
 					<div class="works__col">
@@ -957,22 +994,10 @@ hr {
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
 						</div>
 						<div class="works-item">
 							<img class="work__image"
 								src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
-							<div class="work-info">
-								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-								</a>
-								<div class="work__title">creat infotr hurntd</div>
-								<div class="works__text">Lorem ipsum dolor sit</div>
-							</div>
 						</div>
 					</div>
 				</div>

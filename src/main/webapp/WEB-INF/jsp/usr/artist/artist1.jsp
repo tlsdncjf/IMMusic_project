@@ -19,8 +19,7 @@
       </div>
 
       <div class="short-bio">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, repellat, quod sed optio nesciunt aspernatur inventore ab, nostrum accusantium harum dolor voluptate nulla!</p>
-   
+      <p>클래식기타리스트 임재민</p>
       </div>
 
 <!--       <a href="#" class="link" onclick="readMore()">Read More</a> -->
