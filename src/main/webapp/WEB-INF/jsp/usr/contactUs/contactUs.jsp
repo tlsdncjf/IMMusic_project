@@ -32,7 +32,7 @@ section {
 	background-size: cover; /* Adjusts the background image to cover the entire container */
     background-repeat: no-repeat; /* Ensures the background image is not repeated */
     /* Additional styles */
-    width: 300px; /* Set a width for the container */
+    width: 100%; /* Set a width for the container */
     height: 235px; /* Set a height for the container */
 }
 

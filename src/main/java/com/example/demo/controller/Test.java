@@ -46,43 +46,52 @@ public class Test {
 
 	@RequestMapping("/usr/test/AddFindTest2")
 	public String AddFindTest2() {
-		
+
 		return "/usr/test/AddFindTest2";
 	}
-	
+
 	@RequestMapping("/usr/test/weatherApiTest")
 	public String weatherApiTest() {
 
 		return "/usr/test/weatherApiTest";
 	}
 
-	
 	@RequestMapping("/usr/test/slidertest")
 	public String testSlider() {
-		
+
 		return "/usr/test/sliderTest";
 	}
+
 	@RequestMapping("/usr/home/main3")
 	public String main3() {
-		
+
 		return "/usr/home/main3";
 	}
-	
+
 	@Autowired
 	private Rq rq;
-	
+
 	@Autowired
-	private PressService pressService; 
-	
+	private PressService pressService;
+
 	@RequestMapping("/usr/press/listTest")
-	public String listTest( Model model) {
-		System.err.println("!!!!!!!!!!!!!!");
+	public String listTest(Model model) {
+
 		List<Press> press = pressService.getAllPrintPress();
-		System.err.println("$$$$" + press.get(0).getBody());
+
 		model.addAttribute("press", press);
-		
 
 		return "/usr/press/listTest";
 	}
+
+	@RequestMapping("/usr/press/detailTest")
+	public String detailTest(int id, Model model) {
 		
+		Press press = pressService.getPress(id);
+
+		model.addAttribute("press", press);
+
+		return "/usr/press/detailTest";
+	}
+
 }
