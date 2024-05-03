@@ -142,7 +142,9 @@ a.slide_btn {
 
 /* 슬라이드 버튼 호버 시 투명도 변경 */
 .previous_btn:hover, .next_btn:hover {
-	opacity: 1; /* 투명도 1로 설정 */
+	opacity: 3; /* 투명도 3로 설정 */
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 300px;
 }
 
 /* 반응형 디자인: 화면 크기가 작은 경우 버튼 위치 조정 */

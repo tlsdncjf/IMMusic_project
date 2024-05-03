@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%--  <c:set var="main" value="MAIN"></c:set> --%>
 <c:set var="pageTitle" value="MAIN"></c:set>
@@ -11,12 +10,9 @@
 <title>${pageTitle }</title>
 <link rel="stylesheet" type="text/css" href="acss/css/mogo.css">
 <script src="https://use.fontawesome.com/692e9fe4aa.js"></script>
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 </head>
 
@@ -157,7 +153,7 @@ a.slide_btn {
 
 .previous_btn, .next_btn {
 	cursor: pointer; /* 커서 포인터로 변경 */
-	height: 65px; /* 높이 설정 */
+	height: 100%; /* 높이 설정 */
 	opacity: 0.5; /* 투명도 설정 */
 	-webkit-transition: opacity 0.4s ease-in-out; /* 웹킷 브라우저용 트랜지션 설정 */
 	-moz-transition: opacity 0.4s ease-in-out; /* 모질라 브라우저용 트랜지션 설정 */
@@ -167,6 +163,13 @@ a.slide_btn {
 	width: 65px; /* 너비 설정 */
 }
 
+.previous_btn:hover,
+.previous_btn:focus,
+.next_btn:hover,
+.next_btn:focus{
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+}
 /* 슬라이드 버튼 호버 시 투명도 변경 */
 .previous_btn:hover, .next_btn:hover {
 	opacity: 1; /* 투명도 1로 설정 */
@@ -713,14 +716,14 @@ tr>td {
 
 <div class="page">
 
-	<div class="intro" id="intro">
+	<!-- <div class="intro" id="intro">
 		<div class="intro_inner">
 			<h2 class="intro__suptitle">IMMusic & Art</h2>
 			<h1 class="intro__title">
 				<a href="/usr/about">Welcome</a>
 			</h1>
 		</div>
-	</div>
+	</div> -->
 
 
 	<div class="slider">
@@ -741,8 +744,16 @@ tr>td {
 
 		<div class="slide_buttons">
 			<!-- 	<div class="directional_nav"> -->
-			<div class="previous_btn" title="Previous">◁</div>
-			<div class="next_btn" title="Next">▷</div>
+			<div class="intro" id="intro">
+				<div class="intro_inner">
+					<h2 class="intro__suptitle">IMMusic & Art</h2>
+					<h1 class="intro__title">
+						<a href="/usr/about">Welcome</a>
+					</h1>
+				</div>
+			</div>
+			<div class="previous_btn" title="Previous"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #f2ede2;"></i></div>
+			<div class="next_btn" title="Next"><i class="fa-solid fa-arrow-right fa-2xl" style="color: #f2ede2;"></i></div>
 			<!-- 	</div> -->
 
 		</div>
@@ -758,10 +769,9 @@ tr>td {
 					<h3 class="section_suptitle">IMMusic & Art</h3>
 					<h2 class="section_title">주요 뉴스 및 공연 소식</h2>
 					<div class="section__Text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ab nulla recusandae quam dolor quod sapiente doloremque
-							asperiores quisquam amet quaerat nam officiis odio provident
-							aspernatur natus at ex laudantium debitis.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab nulla recusandae quam dolor quod sapiente
+							doloremque asperiores quisquam amet quaerat nam officiis odio provident aspernatur natus at ex laudantium
+							debitis.</p>
 					</div>
 				</div>
 
@@ -771,8 +781,7 @@ tr>td {
 							<div class=" card-imag">
 								<img src="/resource/에오 트리오 사진.jpg" alt="Изображение">
 								<div class="card_text">
-									<a href="https://blog.naver.com/jazzjarasum/221102783565">피아니스트
-										허대욱, 에오 트리오로 만나다.</a>
+									<a href="https://blog.naver.com/jazzjarasum/221102783565">피아니스트 허대욱, 에오 트리오로 만나다.</a>
 								</div>
 							</div>
 						</div>
@@ -782,8 +791,7 @@ tr>td {
 							<div class="card-imag">
 								<img src="/resource/공연 포스터 2.jpg" alt="Изображение">
 								<div class="card_text">
-									<a href="https://blog.naver.com/jazzjarasum/221102783565">포스터
-										2</a>
+									<a href="https://blog.naver.com/jazzjarasum/221102783565">포스터 2</a>
 								</div>
 							</div>
 						</div>
@@ -812,10 +820,9 @@ tr>td {
 					<h2 class="section_title">아티스트</h2>
 					<div class="section__Text">
 						<!-- 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p> -->
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Minima aspernatur numquam dolorem nostrum veritatis maxime iure
-							ullam vitae hic consequuntur quia molestiae consectetur. Incidunt
-							deserunt recusandae vel eveniet aspernatur delectus.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima aspernatur numquam dolorem nostrum
+							veritatis maxime iure ullam vitae hic consequuntur quia molestiae consectetur. Incidunt deserunt recusandae vel
+							eveniet aspernatur delectus.</p>
 					</div>
 				</div>
 
@@ -824,18 +831,13 @@ tr>td {
 						<div class="card__item1">
 							<div class="inner-card">
 								<div class="card-imag">
-									<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png"
-										alt="Изображение"></a>
+									<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png" alt="Изображение"></a>
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -855,14 +857,10 @@ tr>td {
 									<img src="/resource/구보근 프로필사진.png" alt="Изображение">
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -881,14 +879,10 @@ tr>td {
 									<img src="/resource/원유현 프로필사진.png" alt="Изображение">
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -910,14 +904,10 @@ tr>td {
 									<img src="/resource/임재민 프로필사진2.png" alt="Изображение">
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -935,14 +925,10 @@ tr>td {
 									<img src="/resource/허대욱 프로필사진.jpg" alt="Изображение">
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -960,14 +946,10 @@ tr>td {
 									<img src="/resource/허병훈 프로필사진.jpg" alt="Изображение">
 									<div class="card_text">
 										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-youtube"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i
-												class="fab fa-instagram"></i>
+											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
 											</a>
 										</div>
 									</div>
@@ -993,10 +975,9 @@ tr>td {
 					<h3 class="section_suptitle">Albums</h3>
 					<h2 class="section_title">앨범</h2>
 					<div class="section__Text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
-							quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
-							similique perferendis blanditiis architecto? Ut!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum atque, nihil impedit laboriosam ullam
+							ipsa voluptate iure quis corrupti totam, nesciunt nemo voluptatem possimus doloribus similique perferendis
+							blanditiis architecto? Ut!</p>
 					</div>
 				</div>
 				<div class="logos">
@@ -1009,8 +990,7 @@ tr>td {
 						<div class="card-prof2">Interval Of Parallel</div>
 					</div>
 					<div class="logo-items">
-						<a href="https://youtu.be/KebPgX7_sGA"> <img class="logo_imge"
-							src="/resource/음악앨범 3.jpg">
+						<a href="https://youtu.be/KebPgX7_sGA"> <img class="logo_imge" src="/resource/음악앨범 3.jpg">
 						</a>
 						<div class="card-prof2">Trigram</div>
 					</div>
@@ -1041,10 +1021,9 @@ tr>td {
 					<h3 class="section_suptitle">What we do</h3>
 					<h2 class="section_title">공연 및 무대사진</h2>
 					<div class="section__Text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
-							quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
-							similique perferendis blanditiis architecto? Ut!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum atque, nihil impedit laboriosam ullam
+							ipsa voluptate iure quis corrupti totam, nesciunt nemo voluptatem possimus doloribus similique perferendis
+							blanditiis architecto? Ut!</p>
 					</div>
 				</div>
 			</div>
@@ -1068,25 +1047,21 @@ tr>td {
 						<img class="work__image" src="/resource/스페인음악여행 연주사진.jpg" alt="">
 					</div>
 					<div class="works-item">
-						<img class="work__image" src="https://i.postimg.cc/0MTj6qG0/4.jpg"
-							alt="">
+						<img class="work__image" src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
 					</div>
 				</div>
 				<div class="works__col">
 					<div class="works-item">
-						<img class="work__image"
-							src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
+						<img class="work__image" src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
 					</div>
 				</div>
 				<div class="works__col">
 
 					<div class="works-item">
-						<img class="work__image" src="https://i.postimg.cc/3Wvfpz0q/1.jpg"
-							alt="">
+						<img class="work__image" src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
 					</div>
 					<div class="works-item">
-						<img class="work__image" src="https://i.postimg.cc/pmMjG4SS/7.jpg"
-							alt="">
+						<img class="work__image" src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
 					</div>
 				</div>
 			</div>
