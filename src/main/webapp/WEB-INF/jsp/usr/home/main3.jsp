@@ -24,55 +24,51 @@
 
 
 <style>
-body, ol, ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.top-bar {
-	background-color: skyblue;
-	height: 50px;
-}
-
-.one, .two .three, .four, .five, .six, .seven, .eight {
-	background-color: inherit;
-	height: 30vh;
-}
-
 /* 이미지 슬라이드쇼 */
-.wrapper {
-	width: 100%;
-	overflow: hidden;
-}
+ #testbox {
+    overflow: hidden; /* 넘치는 부분을 잘라냅니다. */
+    position: relative; /* 자식 요소의 위치를 상대적으로 지정합니다. */
+    width: 1200px; /* 테스트를 위한 임시 값으로 슬라이더의 가로 크기를 설정합니다. */
+    height: 200px; /* 슬라이더의 세로 크기를 설정합니다. */
+  }
 
-.photobanner {
-	position: relative;
-	height: 233px;
-	margin-bottom: 30px;
-	display: flex;
-	width: 100%;
-}
+  .test {
+    width: 3200px; /* 모든 이미지와 클론 이미지를 포함하는 슬라이더의 가로 크기를 설정합니다. */
+    height: 100%; /* 슬라이더의 세로 크기를 100%로 설정하여 부모 요소의 높이에 맞게 설정합니다. */
+    display: flex; /* 내부 요소를 수평으로 배치하기 위해 flexbox 레이아웃을 사용합니다. */
+    flex-wrap: nowrap; /* 내부 요소가 한 줄에 정렬되도록 합니다. */
+    animation: bannermove 10s linear infinite; /* 슬라이드 애니메이션을 적용합니다. */
+    padding-bottom: 30px; /* 하단 여백을 추가하여 이미지와 테두리가 겹치는 것을 방지합니다. */
+  }
 
-.photobanner img {
-	margin: 0px 25px;
-	box-shadow: 2px 2px 8px #8a8a8a;
-}
+  .test > div {
+    flex: 0 0 auto; /* 내부 요소가 flexbox의 아이템으로 동작하도록 설정합니다. */
+    height: 200px; /* 내부 요소의 높이를 슬라이더의 높이와 일치시킵니다. */
+    line-height: 200px; /* 텍스트를 수직으로 가운데 정렬하기 위해 사용합니다. */
+    vertical-align: top; /* 내부 요소를 위쪽으로 정렬합니다. */
+    text-align: center; /* 내부 요소의 텍스트를 가운데 정렬합니다. */
+  }
 
-.photobanner {
-	animation: bannermove 3000s linear infinite alternate-reverse;
-}
+  img {
+    width: 100%; /* 이미지를 부모 요소의 너비에 맞게 설정합니다. */
+    height: 100%; /* 이미지를 부모 요소의 높이에 맞게 설정합니다. */
+    padding: 10px; /* 이미지 주위에 여백을 추가합니다. */
+  }
 
-@
-keyframes bannermove {from { left:0px;
-	
-}
+  @keyframes bannermove {
+    0% {
+      transform: translate(0, 0); /* 애니메이션 시작 지점으로 이동합니다. */
+    }
+    100% {
+      transform: translate(-50%, 0); /* 애니메이션 종료 지점으로 이동합니다. */
+    }
+  }
 
-to {
-	left: -5400px;
-}
+  #testbox:hover .test {
+    animation-play-state: paused; /* 마우스를 올리면 애니메이션을 일시정지합니다. */
+  }
+/* 앨범 슬라이드 */
 
-}
 *, *:before, *:after {
 	box-sizing: border-box;
 	outline: none;
@@ -1380,7 +1376,6 @@ hr {
 	}
 	.nav.active {
 		display: block;
-		
 	}
 	.nav-link {
 		display: block;
@@ -1598,13 +1593,13 @@ hr {
 }
 </style>
 
+<script>
+
+</script>
 
 
 <body>
 	<div class="page">
-
-
-
 		<div class="intro" id="intro">
 			<div class="container">
 				<div class="intro_inner">
@@ -1817,194 +1812,235 @@ hr {
 								blanditiis architecto? Ut!</p>
 						</div>
 					</div>
-					<div class="one" style="text-align: center;"></div>
-					<div class="wrapper">
-						<div class="photobanner">
-							<img class="first" src="/resource/음악앨범 1.jpg"> Will It Be Spring Tomorrow? 
-							<img src="/resource/음악앨범 2.jpg" alt="" />Interval Of Parallel 
-							<img src="/resource/음악앨범 3.jpg" alt="" /> Trigram 
-							<img src="/resource/음악앨범 4.jpg" alt="" /> Le Moment Disperse 
-							<img src="/resource/음악앨범 5.jpg" alt="" /> To The West 
-							<img src="/resource/음악앨범 6.jpg" alt="" /> 스페인의 인상
+					<div id="testbox">
+						<div class="test" id="slider">
+							<div>
+								<img src="/resource/음악앨범 1.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 2.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 3.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 4.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 5.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 7.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 1.jpg" />
+							</div>
+							<div>
+								<img src="/resource/음악앨범 2.jpg" />
+							</div>
+							<!--   clone     -->
+							<div class="clone">
+								<img src="/resource/음악앨범 1.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 2.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 3.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 4.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 5.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 7.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 1.jpg" />
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 2.jpg" />
+							</div>
 						</div>
 					</div>
+
+					<section class="section section-gray" id="work">
+						<div class="container">
+							<div class="section_heder">
+								<h3 class="section_suptitle">Who we do</h3>
+								<h2 class="section_title">공연 및 무대사진</h2>
+								<div class="section__Text">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum atque, nihil impedit laboriosam ullam
+										ipsa voluptate iure quis corrupti totam, nesciunt nemo voluptatem possimus doloribus similique perferendis
+										blanditiis architecto? Ut!</p>
+								</div>
+							</div>
+						</div>
+						<div class="works">
+							<div class="works__col">
+								<div class="works-item">
+									<img class="work__image" src="/resource/공연사진.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+								<div class="works-item">
+									<img class="work__image" src="/resource/무대사진.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+							</div>
+							<div class="works__col">
+								<div class="works-item">
+									<img class="work__image" src="https://i.postimg.cc/WhcW7SM1/2.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+								<div class="works-item">
+									<img class="work__image" src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+							</div>
+							<div class="works__col">
+								<div class="works-item">
+									<img class="work__image" src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+							</div>
+							<div class="works__col">
+
+								<div class="works-item">
+									<img class="work__image" src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+								<div class="works-item">
+									<img class="work__image" src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
+									<div class="work-info">
+										<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
+										</a>
+										<div class="work__title">creat infotr hurntd</div>
+										<div class="works__text">Lorem ipsum dolor sit</div>
+									</div>
+								</div>
+							</div>
+					</section>
+
+					<section class="section">
+						<div class="container">
+							<div class="section_heder">
+								<h3 class="section_suptitle">IMMusic & Art</h3>
+								<h2 class="section_title">lates blog</h2>
+							</div>
+							<div class="blog">
+								<div class="blo_item">
+									<div class="blog-header">
+										<a href="#"> <img class="blog_img" src="/resource/블로그사진1.jpg" alt="">
+										</a>
+										<div class="blog_date">
+											<div class="blog-date-day">15</div>
+											Jan
+										</div>
+									</div>
+									<div class="blog-content">
+										<div class="blog_title">
+											<a href="#">Lorem ipsum dolor sit amet.</a>
+										</div>
+										<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
+											reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
+									</div>
+									<div class="blog_footer">
+										<div class="blog-stat">
+											<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
+												class="far fa-comment-dots"></i>17</span>
+										</div>
+									</div>
+								</div>
+								<div class="blo_item">
+									<div class="blog-header">
+										<a href="#"> <img class="blog_img" src="/resource/블로그사진2.jpg" alt="">
+										</a>
+										<div class="blog_date">
+											<div class="blog-date-day">15</div>
+											Jan
+										</div>
+									</div>
+									<div class="blog-content">
+										<div class="blog_title">
+											<a href="#">Lorem ipsum dolor sit amet.</a>
+										</div>
+										<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
+											reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
+									</div>
+									<div class="blog_footer">
+										<div class="blog-stat">
+											<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
+												class="far fa-comment-dots"></i>17</span>
+										</div>
+									</div>
+								</div>
+								<div class="blo_item">
+									<div class="blog-header">
+										<a href="#"> <img class="blog_img" src="/resource/블로그사진3.jpg" alt="">
+										</a>
+										<div class="blog_date">
+											<div class="blog-date-day">15</div>
+											Jan
+										</div>
+									</div>
+									<div class="blog-content">
+										<div class="blog_title">
+											<a href="#">Lorem ipsum dolor sit amet.</a>
+										</div>
+										<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
+											reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
+									</div>
+									<div class="blog_footer">
+										<div class="blog-stat">
+											<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
+												class="far fa-comment-dots"></i>17</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- blog-->
+						</div>
+					</section>
 				</div>
 
-				<section class="section section-gray" id="work">
-					<div class="container">
-						<div class="section_heder">
-							<h3 class="section_suptitle">Who we do</h3>
-							<h2 class="section_title">공연 및 무대사진</h2>
-							<div class="section__Text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum atque, nihil impedit laboriosam ullam
-									ipsa voluptate iure quis corrupti totam, nesciunt nemo voluptatem possimus doloribus similique perferendis
-									blanditiis architecto? Ut!</p>
-							</div>
-						</div>
-					</div>
-					<div class="works">
-						<div class="works__col">
-							<div class="works-item">
-								<img class="work__image" src="/resource/공연사진.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-							<div class="works-item">
-								<img class="work__image" src="/resource/무대사진.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-						</div>
-						<div class="works__col">
-							<div class="works-item">
-								<img class="work__image" src="https://i.postimg.cc/WhcW7SM1/2.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-							<div class="works-item">
-								<img class="work__image" src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-						</div>
-						<div class="works__col">
-							<div class="works-item">
-								<img class="work__image" src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-						</div>
-						<div class="works__col">
 
-							<div class="works-item">
-								<img class="work__image" src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-							<div class="works-item">
-								<img class="work__image" src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
-								<div class="work-info">
-									<a class="works-icon" href="#"> <i class="fas fa-mountain"></i>
-									</a>
-									<div class="work__title">creat infotr hurntd</div>
-									<div class="works__text">Lorem ipsum dolor sit</div>
-								</div>
-							</div>
-						</div>
-				</section>
 
-				<section class="section">
-					<div class="container">
-						<div class="section_heder">
-							<h3 class="section_suptitle">IMMusic & Art</h3>
-							<h2 class="section_title">lates blog</h2>
-						</div>
-						<div class="blog">
-							<div class="blo_item">
-								<div class="blog-header">
-									<a href="#"> <img class="blog_img" src="/resource/블로그사진1.jpg" alt="">
-									</a>
-									<div class="blog_date">
-										<div class="blog-date-day">15</div>
-										Jan
-									</div>
-								</div>
-								<div class="blog-content">
-									<div class="blog_title">
-										<a href="#">Lorem ipsum dolor sit amet.</a>
-									</div>
-									<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
-										reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
-								</div>
-								<div class="blog_footer">
-									<div class="blog-stat">
-										<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
-											class="far fa-comment-dots"></i>17</span>
-									</div>
-								</div>
-							</div>
-							<div class="blo_item">
-								<div class="blog-header">
-									<a href="#"> <img class="blog_img" src="/resource/블로그사진2.jpg" alt="">
-									</a>
-									<div class="blog_date">
-										<div class="blog-date-day">15</div>
-										Jan
-									</div>
-								</div>
-								<div class="blog-content">
-									<div class="blog_title">
-										<a href="#">Lorem ipsum dolor sit amet.</a>
-									</div>
-									<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
-										reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
-								</div>
-								<div class="blog_footer">
-									<div class="blog-stat">
-										<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
-											class="far fa-comment-dots"></i>17</span>
-									</div>
-								</div>
-							</div>
-							<div class="blo_item">
-								<div class="blog-header">
-									<a href="#"> <img class="blog_img" src="/resource/블로그사진3.jpg" alt="">
-									</a>
-									<div class="blog_date">
-										<div class="blog-date-day">15</div>
-										Jan
-									</div>
-								</div>
-								<div class="blog-content">
-									<div class="blog_title">
-										<a href="#">Lorem ipsum dolor sit amet.</a>
-									</div>
-									<div class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis magni,
-										reprehenderit doloribus aliquid saepe commodi sit dolor, rem earum!</div>
-								</div>
-								<div class="blog_footer">
-									<div class="blog-stat">
-										<span class="blog-stat-item"><i class="far fa-eye"></i>542</span> <span class="blog-stat-item"><i
-											class="far fa-comment-dots"></i>17</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- blog-->
-					</div>
-				</section>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+				<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				<script src="acss/js/app.js"></script>
 			</div>
-
-
-
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-			<script src="acss/js/app.js"></script>
-		</div>
 </body>
 
 </html>

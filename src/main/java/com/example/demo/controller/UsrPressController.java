@@ -107,50 +107,26 @@ public class UsrPressController {
 	}
 
 	@RequestMapping("/usr/press/list")
-	public String showList(Model model, @RequestParam(defaultValue = "0") int boardId,
-			@RequestParam(defaultValue = "1") int page,
+	public String showList(Model model, @RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "title,body") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) {
 
 		// 게시글 전체 개수 구하기
-		int pressesCount = pressService.getPressesCount(boardId, searchKeywordTypeCode, searchKeyword);
+		int pressesCount = pressService.getPressesCount(searchKeywordTypeCode, searchKeyword);
 
 		Page pagination = new Page(pressesCount, page);
 
-		// 전체 게시글 가져오기
-		if (boardId == 0) {
-			// 게시판 번호로 게시글 가져오기 및 페이지네이션
-			List<Press> presses = pressService.getForPrintPresses(boardId, pagination.getItemsInAPage(), page,
-					searchKeywordTypeCode, searchKeyword);
 
-			model.addAttribute("pressesCount", pressesCount);
-			model.addAttribute("page", page);
-			model.addAttribute("pagination", pagination);
-//			model.addAttribute("board", board);
-			model.addAttribute("boardId", boardId);
-			model.addAttribute("presses", presses);
-
-			return "usr/press/list";
-		}
-
-		// 게시판 이름표용 데이터
-		Board board = boardService.getBoardById(boardId);
-
-		// 게시판 번호가 없는 경우
-		if (board == null) {
-			return rq.historyBackOnView("없는 게시판이야");
-		}
 
 		// 게시판 번호로 게시글 가져오기 및 페이지네이션
-		List<Press> presses = pressService.getForPrintPresses(boardId, pagination.getItemsInAPage(), page,
+		List<Press> press = pressService.getForPrintPresses(pagination.getItemsInAPage(), page,
 				searchKeywordTypeCode, searchKeyword);
 
+
+		model.addAttribute("press", press);
 		model.addAttribute("pressesCount", pressesCount);
 		model.addAttribute("page", page);
 		model.addAttribute("pagination", pagination);
-		model.addAttribute("board", board);
-		model.addAttribute("boardId", boardId);
-		model.addAttribute("presses", presses);
 
 		return "usr/press/list";
 	}

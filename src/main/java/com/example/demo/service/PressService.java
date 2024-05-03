@@ -44,18 +44,18 @@ public class PressService {
 	}
 
 	// 게시판 번호로 가져오기 및 페이지네이션
-	public List<Press> getForPrintPresses(Integer boardId, int itemsInAPage, int page, String searchKeywordTypeCode,
+	public List<Press> getForPrintPresses(int itemsInAPage, int page, String searchKeywordTypeCode,
 			String searchKeyword) {
 		int limitFrom = (page - 1) * itemsInAPage;
 		int limitTake = itemsInAPage;
 
-		return pressRepository.getForPrintPresses(boardId, limitFrom, limitTake, searchKeywordTypeCode,
+		return pressRepository.getForPrintPresses(limitFrom, limitTake, searchKeywordTypeCode,
 				searchKeyword);
 	}
 
 	// 게시글 전체 개수 구하기
-	public int getPressesCount(Integer boardId, String searchKeywordTypeCode, String searchKeyword) {
-		return pressRepository.getPressesCount(boardId, searchKeywordTypeCode, searchKeyword);
+	public int getPressesCount(String searchKeywordTypeCode, String searchKeyword) {
+		return pressRepository.getPressesCount(searchKeywordTypeCode, searchKeyword);
 	}
 
 	// 게시글 가져와서 아이디 권한체크 메소드 실행
@@ -67,12 +67,12 @@ public class PressService {
 		return press;
 	}
 	
-	public List<Press> getAllPrintPress() {
-		
-		List<Press> press = pressRepository.getAllPrintPress();
-		
-		return press;
-	}
+//	public List<Press> getAllPrintPress() {
+//		
+//		List<Press> press = pressRepository.getAllPrintPress();
+//		
+//		return press;
+//	}
 
 	// PressVO에다가 참,거짓값 심어주기 -> jsp 수정,삭제 버튼 권한체크용
 	private void controlForPrintPress(int loginedMemberId, Press press) {

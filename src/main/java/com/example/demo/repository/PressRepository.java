@@ -47,11 +47,11 @@ public interface PressRepository {
 			""")
 	public Press getForPrintPress(int id);
 	
-	@Select("""
-			SELECT id, title, `body`
-			FROM press
-			""")
-	public List<Press> getAllPrintPress();
+//	@Select("""
+//			SELECT id, title, `body`
+//			FROM press
+//			""")
+//	public List<Press> getAllPrintPress();
 
 	@Delete("DELETE FROM press WHERE id = #{id}")
 	public void deletePress(int id);
@@ -83,9 +83,6 @@ public interface PressRepository {
 			LEFT JOIN `reply` AS R 
 			ON P.id = R.relId
 			WHERE 1
-			<if test="boardId != 0">
-				AND P.boardId = #{boardId}
-			</if>
 			<if test="searchKeyword != ''">
 				<choose>
 					<when test = "searchKeywordTypeCode == 'title'">
@@ -111,7 +108,7 @@ public interface PressRepository {
 
 			</script>
 			""")
-	public List<Press> getForPrintPresses(int boardId, int limitFrom, int limitTake, String searchKeywordTypeCode,
+	public List<Press> getForPrintPresses(int limitFrom, int limitTake, String searchKeywordTypeCode,
 			String searchKeyword);
 
 	@Select("""
@@ -121,9 +118,6 @@ public interface PressRepository {
 			INNER JOIN `member` AS M
 			ON P.memberId = M.id
 			WHERE 1
-			<if test="boardId != 0">
-				AND boardId = #{boardId}
-			</if>
 			<if test="searchKeyword != ''">
 				<choose>
 					<when test="searchKeywordTypeCode == 'title'">
@@ -144,7 +138,7 @@ public interface PressRepository {
 			ORDER BY P.id DESC
 			</script>
 			""")
-	public int getPressesCount(Integer boardId, String searchKeywordTypeCode, String searchKeyword);
+	public int getPressesCount(String searchKeywordTypeCode, String searchKeyword);
 
 	@Update("""
 			UPDATE press

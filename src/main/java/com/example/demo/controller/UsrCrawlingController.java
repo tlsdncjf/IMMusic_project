@@ -15,8 +15,9 @@ import com.example.demo.vo.Blog;
 public class UsrCrawlingController {
 
 	public List<Blog> crawl() {
-		//System.setProperty("webdriver.chrome.driver", "C:\\OHJ\\sts-4.22.0.RELEASE-workspace\\my_project_03\\chromedriver.exe");
+
 		System.setProperty("webdriver.chrome.driver", "C:\\work\\sts-4.21.0.RELEASE-workspace\\IMMusic_project\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\ohyo9\\git\\IMMusic_project\\chromedriver.exe");
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless"); // 브라우저를 표시하지 않고 실행할 경우

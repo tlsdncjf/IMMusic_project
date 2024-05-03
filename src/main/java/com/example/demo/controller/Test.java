@@ -67,6 +67,11 @@ public class Test {
 
 		return "/usr/home/main3";
 	}
+	@RequestMapping("/usr/home/main4")
+	public String main4() {
+		
+		return "/usr/home/main4";
+	}
 
 	@Autowired
 	private Rq rq;
@@ -76,10 +81,6 @@ public class Test {
 
 	@RequestMapping("/usr/press/listTest")
 	public String listTest(Model model) {
-
-		List<Press> press = pressService.getAllPrintPress();
-
-		model.addAttribute("press", press);
 
 		return "/usr/press/listTest";
 	}
@@ -93,5 +94,7 @@ public class Test {
 
 		return "/usr/press/detailTest";
 	}
+	
+	
 
 }

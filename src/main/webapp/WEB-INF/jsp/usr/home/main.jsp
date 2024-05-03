@@ -5,8 +5,6 @@
 <c:set var="pageTitle" value="MAIN"></c:set>
 <%@ include file="../common/head.jspf"%>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +29,8 @@
 }
 
 .page {
-	overflow: hidden;
+	/* 	overflow: hidden; */
+	
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,12 +53,139 @@ hr {
 	padding: 0 15px;
 }
 
+/* 사진 슬라이더 */
+.slider {
+	background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+	background-size: cover; /* 배경 이미지를 컨테이너에 맞게 크기 조정 */
+	-webkit-background-size: cover; /* 웹킷 브라우저용 배경 이미지 크기 조정 */
+	display: flex; /* 요소들을 행 방향으로 배치 */
+	flex-direction: column; /* 요소들을 열 방향으로 배치 */
+	justify-content: center; /* 요소들을 수직 중앙 정렬 */
+	min-height: 820px; /* 최소 높이 지정 */
+	position: relative; /* 위치 지정 */
+}
+
+.slide_viewer {
+	width: 100%; /* 너비 100% */
+	height: 100vh; /* 뷰포트의 높이만큼 설정 */
+	overflow: hidden; /* 넘치는 부분 숨김 */
+	position: relative; /* 위치 지정 */
+	min-height: 820px; /* 최소 높이 지정 */
+}
+
+.slide_group {
+	height: 100%; /* 높이 100% */
+	position: relative; /* 위치 지정 */
+	width: 100%; /* 너비 100% */
+}
+
+.slide {
+	display: none; /* 화면에 보이지 않음 */
+	height: inherit; /* 부모 요소의 높이 상속 */
+	position: absolute; /* 위치 지정 */
+	width: 100%; /* 너비 100% */
+}
+
+.slide img {
+	height: inherit;
+	width: inherit;
+}
+/* 첫 번째 슬라이드는 보이도록 설정 */
+.slide:first-child {
+	display: block;
+}
+
+/* 슬라이드의 배경색 지정 */
+.slide:nth-of-type(1) {
+	background: #D7A151;
+}
+
+.slide:nth-of-type(2) {
+	background: #F4E4CD;
+}
+
+.slide:nth-of-type(3) {
+	background: #C75534;
+}
+
+.slide:nth-of-type(4) {
+	background: #D1D1D4;
+}
+
+.slide_buttons {
+	left: 0; /* 왼쪽 정렬 */
+	position: absolute; /* 위치 지정 */
+	right: 0; /* 오른쪽 정렬 */
+	text-align: center; /* 텍스트 가운데 정렬 */
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+a.slide_btn {
+	color: #474544; /* 텍스트 색상 */
+	font-size: 42px; /* 폰트 크기 */
+	margin: 0 0.175em; /* 외부 여백 설정 */
+	-webkit-transition: all 0.4s ease-in-out; /* 웹킷 브라우저용 트랜지션 설정 */
+	-moz-transition: all 0.4s ease-in-out; /* 모질라 브라우저용 트랜지션 설정 */
+	-ms-transition: all 0.4s ease-in-out; /* 마이크로소프트 브라우저용 트랜지션 설정 */
+	-o-transition: all 0.4s ease-in-out; /* 오페라 브라우저용 트랜지션 설정 */
+	transition: all 0.4s ease-in-out; /* 트랜지션 설정 */
+}
+
+/* 활성화된 슬라이드 버튼 또는 호버된 슬라이드 버튼의 스타일 설정 */
+.slide_btn.active, .slide_btn:hover {
+	color: #428CC6; /* 활성화 또는 호버 시 텍스트 색상 변경 */
+	cursor: pointer; /* 커서 포인터로 변경 */
+}
+
+/* 슬라이드 버튼 이전, 다음 버튼의 스타일 설정 */
+.previous_btn {
+	bottom: 0; /* 아래쪽 정렬 */
+	left: 10px; /* 왼쪽 여백 설정 */
+	position: absolute; /* 위치 지정 */
+	top: 50%; /* 위쪽 정렬 */
+}
+
+.next_btn {
+	bottom: 0; /* 아래쪽 정렬 */
+	position: absolute; /* 위치 지정 */
+	right: 10px; /* 오른쪽 여백 설정 */
+	top: 50%; /* 위쪽 정렬 */
+}
+
+.previous_btn, .next_btn {
+	cursor: pointer; /* 커서 포인터로 변경 */
+	height: 65px; /* 높이 설정 */
+	opacity: 0.5; /* 투명도 설정 */
+	-webkit-transition: opacity 0.4s ease-in-out; /* 웹킷 브라우저용 트랜지션 설정 */
+	-moz-transition: opacity 0.4s ease-in-out; /* 모질라 브라우저용 트랜지션 설정 */
+	-ms-transition: opacity 0.4s ease-in-out; /* 마이크로소프트 브라우저용 트랜지션 설정 */
+	-o-transition: opacity 0.4s ease-in-out; /* 오페라 브라우저용 트랜지션 설정 */
+	transition: opacity 0.4s ease-in-out; /* 트랜지션 설정 */
+	width: 65px; /* 너비 설정 */
+}
+
+/* 슬라이드 버튼 호버 시 투명도 변경 */
+.previous_btn:hover, .next_btn:hover {
+	opacity: 1; /* 투명도 1로 설정 */
+}
+
+/* 반응형 디자인: 화면 크기가 작은 경우 버튼 위치 조정 */
+@media only screen and (max-width: 767px) {
+	.previous_btn {
+		left: 50px; /* 왼쪽 여백 설정 */
+	}
+	.next_btn {
+		right: 50px; /* 오른쪽 여백 설정 */
+	}
+}
+
 .intro {
 	width: 100%;
 	height: 100vh;
-	/* 	background: url("https://i.postimg.cc/3JYVfWCW/img-intro-01.jpg"); */
-	background: url("/resource/에오 트리오 사진.jpg");
-	background-repeat: no-repeat;
+	/* 	background: url("/resource/에오 트리오 사진.jpg"); */
 	background-size: cover;
 	-webkit-background-size: cover;
 	display: flex;
@@ -78,7 +204,7 @@ hr {
 
 .intro__title {
 	font-size: 150px;
-	color: #fff;
+	/* 	color: #fff; */
 	font-weight: 700px;
 	text-transform: uppercase;
 	line-height: 1;
@@ -125,7 +251,7 @@ hr {
 .intro__suptitle {
 	margin-bottom: 20px;
 	font-size: 72px;
-	color: #fff;
+	/* 	color: #fff; */
 	font-family: 'Kaushan Script', cursive;
 }
 
@@ -427,16 +553,17 @@ tr {
 }
 
 tr:after {
-    content: '';
-    display: inline-block;
-    width: 500px;
-    height: 1px;
-    position: absolute;
-    background-color: #fff;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    bottom: -1px;
-    left: 50%; 
-    transform: translateX(-50%);
+	content: '';
+	display: inline-block;
+	width: 500px;
+	height: 1px;
+	position: absolute;
+	background-color: #fff;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 tr:hover {
@@ -444,7 +571,7 @@ tr:hover {
 	color: #b3a78f;
 }
 
-tr > td {
+tr>td {
 	text-align: left;
 	padding: 15px 0px;
 }
@@ -584,417 +711,571 @@ tr > td {
 </style>
 
 
+<div class="page">
 
-<body>
-	<div class="page">
+	<div class="intro" id="intro">
+		<div class="intro_inner">
+			<h2 class="intro__suptitle">IMMusic & Art</h2>
+			<h1 class="intro__title">
+				<a href="/usr/about">Welcome</a>
+			</h1>
+		</div>
+	</div>
 
 
+	<div class="slider">
+		<div class="slide_viewer">
+			<div class="slide_group">
+				<div class="slide">
+					<img src="/resource/공연사진.jpg" />
+				</div>
+				<div class="slide">
+					<img src="/resource/에오 트리오 사진.jpg" />
+				</div>
+				<div class="slide">
+					<img src="/resource/스페인음악여행 연주사진.jpg" />
+				</div>
+				<!-- 			<div class="slide"><img src="/resource/공연사진.jpg"/></div> -->
+			</div>
+		</div>
 
-		<div class="intro" id="intro">
+		<div class="slide_buttons">
+			<!-- 	<div class="directional_nav"> -->
+			<div class="previous_btn" title="Previous">◁</div>
+			<div class="next_btn" title="Next">▷</div>
+			<!-- 	</div> -->
+
+		</div>
+
+	</div>
+
+
+	<div class="stati">
+		<section class="section" id="about">
 			<div class="container">
-				<div class="intro_inner">
-					<h2 class="intro__suptitle">IMMusic & Art</h2>
-					<h1 class="intro__title">
-						<a href="/usr/about">Welcome</a>
-					</h1>
-					<!-- 					<a href="#" class="btn">Learn More</a> -->
+
+				<div class="section_heder">
+					<h3 class="section_suptitle">IMMusic & Art</h3>
+					<h2 class="section_title">주요 뉴스 및 공연 소식</h2>
+					<div class="section__Text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Ab nulla recusandae quam dolor quod sapiente doloremque
+							asperiores quisquam amet quaerat nam officiis odio provident
+							aspernatur natus at ex laudantium debitis.</p>
+					</div>
+				</div>
+
+				<div class="cards">
+					<div class="card__item">
+						<div class="inner-card">
+							<div class=" card-imag">
+								<img src="/resource/에오 트리오 사진.jpg" alt="Изображение">
+								<div class="card_text">
+									<a href="https://blog.naver.com/jazzjarasum/221102783565">피아니스트
+										허대욱, 에오 트리오로 만나다.</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card__item">
+						<div class="inner-card">
+							<div class="card-imag">
+								<img src="/resource/공연 포스터 2.jpg" alt="Изображение">
+								<div class="card_text">
+									<a href="https://blog.naver.com/jazzjarasum/221102783565">포스터
+										2</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card__item">
+						<div class="inner-card">
+							<div class="card-imag">
+								<img src="/resource/공연 포스터 1.jpg" alt="Изображение">
+								<div class="card_text">포스터 1</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="text-center mt-24">
+				<a class="button-form" href="/usr/press/list">소식 더보기</a>
+			</div>
+		</section>
+
+		<section class="section section-gray ">
+			<div class="container">
+				<div class="section_heder">
+					<h3 class="section_suptitle">Who we are</h3>
+					<h2 class="section_title">아티스트</h2>
+					<div class="section__Text">
+						<!-- 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p> -->
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Minima aspernatur numquam dolorem nostrum veritatis maxime iure
+							ullam vitae hic consequuntur quia molestiae consectetur. Incidunt
+							deserunt recusandae vel eveniet aspernatur delectus.</p>
+					</div>
+				</div>
+
+				<div class="artist-cards">
+					<div class="cards1">
+						<div class="card__item1">
+							<div class="inner-card">
+								<div class="card-imag">
+									<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png"
+										alt="Изображение"></a>
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">
+									<a class=" hover:text-gray-300" href="/usr/artist3">허원경</a>
+								</div>
+								<div class="card-prof">리더(클래식 기타)</div>
+							</div>
+						</div>
+
+						<div class="card__item2">
+							<div class="inner-card">
+								<div class="card-imag">
+									<img src="/resource/구보근 프로필사진.png" alt="Изображение">
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">구본근</div>
+								<div class="card-prof">단원(클래식 기타)</div>
+							</div>
+						</div>
+
+
+						<div class="card__item3">
+							<div class="inner-card">
+								<div class="card-imag">
+									<img src="/resource/원유현 프로필사진.png" alt="Изображение">
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">원유현</div>
+								<div class="card-prof">단원(클래식 기타)</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="artist-cards">
+					<div class="cards1">
+						<div class="card__item1">
+							<div class="inner-card">
+								<div class="card-imag">
+									<img src="/resource/임재민 프로필사진2.png" alt="Изображение">
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">임재민</div>
+								<div class="card-prof">단원(클래식 기타)</div>
+							</div>
+						</div>
+
+						<div class="card__item2">
+							<div class="inner-card">
+								<div class="card-imag">
+									<img src="/resource/허대욱 프로필사진.jpg" alt="Изображение">
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">허대욱</div>
+								<div class="card-prof">단원(재즈 피아노)</div>
+							</div>
+						</div>
+
+						<div class="card__item3">
+							<div class="inner-card">
+								<div class="card-imag">
+									<img src="/resource/허병훈 프로필사진.jpg" alt="Изображение">
+									<div class="card_text">
+										<div class="social">
+											<a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-facebook-f"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-twitter"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-youtube"></i>
+											</a> <a href="#" class="social_iteam" target="_blank"> <i
+												class="fab fa-instagram"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-info">
+								<div class="card-name">허병훈</div>
+								<div class="card-prof">고문</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="text-center  mt-24">
+					<a class="button-form button-form1" href="/usr/artist">아티스트 더보기</a>
+				</div>
+		</section>
+
+		<div class="section ">
+			<div class="container">
+				<div class="section_heder">
+					<h3 class="section_suptitle">Albums</h3>
+					<h2 class="section_title">앨범</h2>
+					<div class="section__Text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
+							quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
+							similique perferendis blanditiis architecto? Ut!</p>
+					</div>
+				</div>
+				<div class="logos">
+					<div class="logo-items">
+						<img class="logo_imge" src="/resource/음악앨범 1.jpg">
+						<div class="card-prof2">Will It Be Spring Tomorrow?</div>
+					</div>
+					<div class="logo-items">
+						<img class="logo_imge" src="/resource/음악앨범 2.jpg">
+						<div class="card-prof2">Interval Of Parallel</div>
+					</div>
+					<div class="logo-items">
+						<a href="https://youtu.be/KebPgX7_sGA"> <img class="logo_imge"
+							src="/resource/음악앨범 3.jpg">
+						</a>
+						<div class="card-prof2">Trigram</div>
+					</div>
+					<div class="logo-items">
+						<img class="logo_imge" src="/resource/음악앨범 4.jpg">
+						<div class="card-prof2">Le Moment Disperse</div>
+					</div>
+					<div class="logo-items ">
+						<img class="logo_imge " src="/resource/음악앨범 5.jpg">
+						<div class="card-prof2">To The West</div>
+					</div>
+					<div class="logo-items ">
+						<img class="logo_imge" src="/resource/음악앨범 6.png">
+						<div class="card-prof2">sherpa</div>
+					</div>
+					<div class="logo-items ">
+						<img class="logo_imge" src="/resource/음악앨범 7.jpg">
+						<div class="card-prof2">스페인의 인상</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
 
-		<div class="stati">
-			<section class="section" id="about">
-				<div class="container">
-
-					<div class="section_heder">
-						<h3 class="section_suptitle">IMMusic & Art</h3>
-						<h2 class="section_title">주요 뉴스 및 공연 소식</h2>
-						<div class="section__Text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Ab nulla recusandae quam dolor quod sapiente doloremque
-								asperiores quisquam amet quaerat nam officiis odio provident
-								aspernatur natus at ex laudantium debitis.</p>
-						</div>
-					</div>
-
-					<div class="cards">
-						<div class="card__item">
-							<div class="inner-card">
-								<div class=" card-imag">
-									<img src="/resource/에오 트리오 사진.jpg" alt="Изображение">
-									<div class="card_text">
-										<a href="https://blog.naver.com/jazzjarasum/221102783565">피아니스트
-											허대욱, 에오 트리오로 만나다.</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="card__item">
-							<div class="inner-card">
-								<div class="card-imag">
-									<img src="/resource/공연 포스터 2.jpg" alt="Изображение">
-									<div class="card_text">
-										<a href="https://blog.naver.com/jazzjarasum/221102783565">포스터
-											2</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="card__item">
-							<div class="inner-card">
-								<div class="card-imag">
-									<img src="/resource/공연 포스터 1.jpg" alt="Изображение">
-									<div class="card_text">포스터 1</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="text-center mt-24">
-					<a class="button-form" href="/usr/press/list">소식 더보기</a>
-				</div>
-			</section>
-
-			<section class="section section-gray ">
-				<div class="container">
-					<div class="section_heder">
-						<h3 class="section_suptitle">Who we are</h3>
-						<h2 class="section_title">아티스트</h2>
-						<div class="section__Text">
-							<!-- 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p> -->
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Minima aspernatur numquam dolorem nostrum veritatis maxime iure
-								ullam vitae hic consequuntur quia molestiae consectetur.
-								Incidunt deserunt recusandae vel eveniet aspernatur delectus.</p>
-						</div>
-					</div>
-
-					<div class="artist-cards">
-						<div class="cards1">
-							<div class="card__item1">
-								<div class="inner-card">
-									<div class="card-imag">
-										<a href="/usr/artist3"> <img src="/resource/허원경 프로필사진.png"
-											alt="Изображение"></a>
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">
-										<a class=" hover:text-gray-300" href="/usr/artist3">허원경</a>
-									</div>
-									<div class="card-prof">리더(클래식 기타)</div>
-								</div>
-							</div>
-
-							<div class="card__item2">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/구보근 프로필사진.png" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">구본근</div>
-									<div class="card-prof">단원(클래식 기타)</div>
-								</div>
-							</div>
-
-
-							<div class="card__item3">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/원유현 프로필사진.png" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">원유현</div>
-									<div class="card-prof">단원(클래식 기타)</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="artist-cards">
-						<div class="cards1">
-							<div class="card__item1">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/임재민 프로필사진2.png" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">임재민</div>
-									<div class="card-prof">단원(클래식 기타)</div>
-								</div>
-							</div>
-
-							<div class="card__item2">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/허대욱 프로필사진.jpg" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">허대욱</div>
-									<div class="card-prof">단원(재즈 피아노)</div>
-								</div>
-							</div>
-
-							<div class="card__item3">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/허병훈 프로필사진.jpg" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-youtube"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i
-													class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">허병훈</div>
-									<div class="card-prof">고문</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="text-center  mt-24">
-						<a class="button-form button-form1" href="/usr/artist">아티스트
-							더보기</a>
-					</div>
-			</section>
-
-			<div class="section ">
-				<div class="container">
-					<div class="section_heder">
-						<h3 class="section_suptitle">Albums</h3>
-						<h2 class="section_title">앨범</h2>
-						<div class="section__Text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate
-								iure quis corrupti totam, nesciunt nemo voluptatem possimus
-								doloribus similique perferendis blanditiis architecto? Ut!</p>
-						</div>
-					</div>
-					<div class="logos">
-						<div class="logo-items">
-							<img class="logo_imge" src="/resource/음악앨범 1.jpg">
-							<div class="card-prof2">Will It Be Spring Tomorrow?</div>
-						</div>
-						<div class="logo-items">
-							<img class="logo_imge" src="/resource/음악앨범 2.jpg">
-							<div class="card-prof2">Interval Of Parallel</div>
-						</div>
-						<div class="logo-items">
-							<a href="https://youtu.be/KebPgX7_sGA"> <img
-								class="logo_imge" src="/resource/음악앨범 3.jpg">
-							</a>
-							<div class="card-prof2">Trigram</div>
-						</div>
-						<div class="logo-items">
-							<img class="logo_imge" src="/resource/음악앨범 4.jpg">
-							<div class="card-prof2">Le Moment Disperse</div>
-						</div>
-						<div class="logo-items ">
-							<img class="logo_imge " src="/resource/음악앨범 5.jpg">
-							<div class="card-prof2">To The West</div>
-						</div>
-						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 6.png">
-							<div class="card-prof2">sherpa</div>
-						</div>
-						<div class="logo-items ">
-							<img class="logo_imge" src="/resource/음악앨범 7.jpg">
-							<div class="card-prof2">스페인의 인상</div>
-						</div>
-
+		<section class="section section-gray" id="work">
+			<div class="container">
+				<div class="section_heder">
+					<h3 class="section_suptitle">What we do</h3>
+					<h2 class="section_title">공연 및 무대사진</h2>
+					<div class="section__Text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate iure
+							quis corrupti totam, nesciunt nemo voluptatem possimus doloribus
+							similique perferendis blanditiis architecto? Ut!</p>
 					</div>
 				</div>
 			</div>
-
-			<section class="section section-gray" id="work">
-				<div class="container">
-					<div class="section_heder">
-						<h3 class="section_suptitle">What we do</h3>
-						<h2 class="section_title">공연 및 무대사진</h2>
-						<div class="section__Text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Dolorum atque, nihil impedit laboriosam ullam ipsa voluptate
-								iure quis corrupti totam, nesciunt nemo voluptatem possimus
-								doloribus similique perferendis blanditiis architecto? Ut!</p>
-						</div>
+			<div class="works">
+				<div class="works__col">
+					<div class="works-item">
+						<img class="work__image" src="/resource/공연사진.jpg" alt="">
+						<!-- 							<div class="work-info"> -->
+						<!-- 								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i> -->
+						<!-- 								</a> -->
+						<!-- 								<div class="work__title">creat infotr hurntd</div> -->
+						<!-- 								<div class="works__text">Lorem ipsum dolor sit</div> -->
+						<!-- 							</div> -->
+					</div>
+					<div class="works-item">
+						<img class="work__image" src="/resource/무대사진.jpg" alt="">
 					</div>
 				</div>
-				<div class="works">
-					<div class="works__col">
-						<div class="works-item">
-							<img class="work__image" src="/resource/공연사진.jpg" alt="">
-							<!-- 							<div class="work-info"> -->
-							<!-- 								<a class="works-icon" href="#"> <i class="fas fa-mountain"></i> -->
-							<!-- 								</a> -->
-							<!-- 								<div class="work__title">creat infotr hurntd</div> -->
-							<!-- 								<div class="works__text">Lorem ipsum dolor sit</div> -->
-							<!-- 							</div> -->
-						</div>
-						<div class="works-item">
-							<img class="work__image" src="/resource/무대사진.jpg" alt="">
-						</div>
+				<div class="works__col">
+					<div class="works-item">
+						<img class="work__image" src="/resource/스페인음악여행 연주사진.jpg" alt="">
 					</div>
-					<div class="works__col">
-						<div class="works-item">
-							<img class="work__image" src="/resource/스페인음악여행 연주사진.jpg" alt="">
-						</div>
-						<div class="works-item">
-							<img class="work__image"
-								src="https://i.postimg.cc/0MTj6qG0/4.jpg" alt="">
-						</div>
-					</div>
-					<div class="works__col">
-						<div class="works-item">
-							<img class="work__image"
-								src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
-						</div>
-					</div>
-					<div class="works__col">
-
-						<div class="works-item">
-							<img class="work__image"
-								src="https://i.postimg.cc/3Wvfpz0q/1.jpg" alt="">
-						</div>
-						<div class="works-item">
-							<img class="work__image"
-								src="https://i.postimg.cc/pmMjG4SS/7.jpg" alt="">
-						</div>
+					<div class="works-item">
+						<img class="work__image" src="https://i.postimg.cc/0MTj6qG0/4.jpg"
+							alt="">
 					</div>
 				</div>
-			</section>
-
-			<section class="section">
-				<div class="container">
-					<div class="section_heder">
-						<h3 class="section_suptitle">IMMusic & Art</h3>
-						<h2 class="section_title">lates blog</h2>
+				<div class="works__col">
+					<div class="works-item">
+						<img class="work__image"
+							src="https://i.postimg.cc/nM9nX5PC/3.jpg[/img][/url]" alt="">
 					</div>
-
-					<!-- 					블로그 크롤링 -->
-					<table>
-						<colgroup>
-							<col style="width: 10%" />
-							<col style="width: 25%" />
-							<col style="width: 65%" />
-						</colgroup>
-						<!--                 <thead>
-                    <tr>
-                        <th>날짜</th>
-                        <th>제목</th>
-                        <th>내용</th>
-                    </tr>
-                </thead> -->
-						<tbody>
-							<c:forEach var="blog" items="${blog}">
-								<tr class="mb-5" onclick="redirectToPost('${blog.post_url}')">
-									<td>${blog.post_date}</td>
-									<td>${blog.post_title}</td>
-									<td>${blog.post_content}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-
-
 				</div>
-			</section>
+				<div class="works__col">
 
-			<script>
-				function redirectToPost(postUrl) {
-					console.log('Redirecting to: ' + postUrl);
-					// var windowFeatures = 'width=800,height=600,resizable=yes,scrollbars=yes';
-					window.open(postUrl, '_blank');
-				}
-			</script>
+					<div class="works-item">
+						<img class="work__image" src="https://i.postimg.cc/3Wvfpz0q/1.jpg"
+							alt="">
+					</div>
+					<div class="works-item">
+						<img class="work__image" src="https://i.postimg.cc/pmMjG4SS/7.jpg"
+							alt="">
+					</div>
+				</div>
+			</div>
+		</section>
 
-		</div>
+		<section class="section">
+			<div class="container">
+				<div class="section_heder">
+					<h3 class="section_suptitle">IMMusic & Art</h3>
+					<h2 class="section_title">lates blog</h2>
+				</div>
+
+				<!-- 					블로그 크롤링 -->
+				<table>
+					<colgroup>
+						<col style="width: 10%" />
+						<col style="width: 25%" />
+						<col style="width: 65%" />
+					</colgroup>
+					<tbody id="blogContent">
+						<!-- 						ajax script로 태그 그림 -->
+
+
+						<%-- 							<c:forEach var="blog" items="${blog}"> --%>
+						<%-- 								<tr class="mb-5" onclick="redirectToPost('${blog.post_url}')"> --%>
+						<%-- 									<td>${blog.post_date}</td> --%>
+						<%-- 									<td>${blog.post_title}</td> --%>
+						<%-- 									<td>${blog.post_content}</td> --%>
+						<!-- 								</tr> -->
+						<%-- 							</c:forEach> --%>
+					</tbody>
+				</table>
+
+
+			</div>
+		</section>
 
 
 	</div>
-</body>
 
-</html>
+
+</div>
+
+
+<!-- 사진 슬라이더 js -->
+<script>
+	$('.slider').each(function() {
+		var $this = $(this);
+		var $group = $this.find('.slide_group');
+		var $slides = $this.find('.slide');
+		var bulletArray = [];
+		var currentIndex = 0;
+		var timeout;
+
+		function move(newIndex) {
+			var animateLeft, slideLeft;
+
+			advance();
+
+			if ($group.is(':animated') || currentIndex === newIndex) {
+				return;
+			}
+
+			bulletArray[currentIndex].removeClass('active');
+			bulletArray[newIndex].addClass('active');
+
+			if (newIndex > currentIndex) {
+				slideLeft = '100%';
+				animateLeft = '-100%';
+			} else {
+				slideLeft = '-100%';
+				animateLeft = '100%';
+			}
+
+			$slides.eq(newIndex).css({
+				display : 'block',
+				left : slideLeft
+			});
+			$group.animate({
+				left : animateLeft
+			}, function() {
+				$slides.eq(currentIndex).css({
+					display : 'none'
+				});
+				$slides.eq(newIndex).css({
+					left : 0
+				});
+				$group.css({
+					left : 0
+				});
+				currentIndex = newIndex;
+			});
+		}
+
+		function advance() {
+			clearTimeout(timeout);
+			timeout = setTimeout(function() {
+				if (currentIndex < ($slides.length - 1)) {
+					move(currentIndex + 1);
+				} else {
+					move(0);
+				}
+			}, 4000);
+		}
+
+		$('.next_btn').on('click', function() {
+			if (currentIndex < ($slides.length - 1)) {
+				move(currentIndex + 1);
+			} else {
+				move(0);
+			}
+		});
+
+		$('.previous_btn').on('click', function() {
+			if (currentIndex !== 0) {
+				move(currentIndex - 1);
+			} else {
+				move(3);
+			}
+		});
+
+		$.each($slides, function(index) {
+			var $button = $('<a class="slide_btn">&bull;</a>');
+
+			if (index === currentIndex) {
+				$button.addClass('active');
+			}
+			$button.on('click', function() {
+				move(index);
+			}).appendTo('.slide_buttons');
+			bulletArray.push($button);
+		});
+
+		advance();
+	});
+</script>
+
+
+
+<!-- 블로그 크롤링 -->
+<script>
+	$(document)
+			.ready(
+					function() {
+						// AJAX 요청을 보냅니다.
+						$
+								.ajax({
+									url : "/usr/home/crawl",
+									type : "GET",
+									success : function(data) {
+										console.log("data: " + data);
+
+										// 받은 데이터를 이용하여 HTML을 생성합니다.
+										var html = "";
+										data
+												.forEach(function(blog) {
+													var postDate = blog.post_date;
+													var postTitle = blog.post_title;
+													var postContent = blog.post_content;
+													var postUrl = blog.post_url;
+
+													// 생성한 HTML을 추가합니다.
+													html += "<tr class='mb-5' onclick='redirectToPost(\""
+															+ postUrl + "\")'>";
+													html += "<td>" + postDate
+															+ "</td>";
+													html += "<td>" + postTitle
+															+ "</td>";
+													html += "<td>"
+															+ postContent
+															+ "</td>";
+													html += "</tr>";
+												});
+
+										// 생성한 HTML을 해당 요소에 추가합니다.
+										$("#blogContent").html(html);
+
+									},
+									error : function(xhr, status, error) {
+										console.error("AJAX 요청 실패:", status,
+												error);
+									}
+								});
+					});
+</script>
+
+
+
+
+
 <!-- 페이지 하단 -->
 <%@ include file="../common/foot.jspf"%>

@@ -65,7 +65,7 @@ img {
 
 .cards_item {
 	display: flex;
-	padding: 1rem;
+	padding: 25px;
 }
 
 @media ( min-width : 40rem) {
@@ -82,8 +82,8 @@ img {
 
 .card {
 	background-color: white;
-	border-radius: 0.25rem;
-	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.15);
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -91,11 +91,11 @@ img {
 
 .card_content {
 	padding: 1rem;
-	background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+	 background: linear-gradient(to left, #b3a78f 10%, #f2ede2 80%); 
+	/* background: #b3a78f; */
 }
 
 .card_title {
-	color: #ffffff;
 	font-size: 1.1rem;
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -104,7 +104,6 @@ img {
 }
 
 .card_text {
-	color: #ffffff;
 	font-size: 0.875rem;
 	line-height: 1.5;
 	margin-bottom: 1.25rem;
@@ -121,7 +120,6 @@ img {
 
 
 <div class="main">
-	<h1>Responsive Card Grid Layout</h1>
 	<ul class="cards">
 		<li class="cards_item">
 			<div class="card">

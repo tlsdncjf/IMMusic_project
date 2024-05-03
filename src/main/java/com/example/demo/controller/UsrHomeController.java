@@ -1,10 +1,14 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.vo.Blog;
 import com.example.demo.vo.Rq;
 
 @Controller
@@ -17,12 +21,11 @@ public class UsrHomeController {
 	private UsrCrawlingController ucc;
 
 	@RequestMapping("/usr/home/main")
-	public String showMain(Model model) {
+	public String showMain() {
 
-		model.addAttribute("blog", ucc.crawl());
-		
 		return "/usr/home/main";
 	}
+	
 	@RequestMapping("/usr/home/main2")
 	public String showMain2() {
 
@@ -35,11 +38,13 @@ public class UsrHomeController {
 		return "redirect:/usr/home/main";
 	}
 	
-	@RequestMapping("/usr/home/main1")
-	public String showMain12(Model model) {
+//	크롤링 ajx
+	@RequestMapping("/usr/home/crawl")
+	@ResponseBody
+	public List<Blog> blogCrawl() {
 
-		model.addAttribute("blog", ucc.crawl());
+		List<Blog> listBlog = ucc.crawl();
 		
-		return "/usr/home/main1";
+		return listBlog;
 	}
 }
