@@ -16,11 +16,11 @@ public class Page {
 	
 	public Page(int articlesCount, int page) {
 		// 페이지네이션 한 페이지에 보여줄 게시글 수
-		this.itemsInAPage = 10;
+		this.itemsInAPage = 6;
 		// 페이지네이션 전체 버튼 수
 		this.totalPage = (int) Math.ceil((double) articlesCount / itemsInAPage);
 		// 페이지네이션 한 페이지 버튼 수
-		this.pageSize = 10;
+		this.pageSize = 5;
 		// 페이지네이션 한 페이지 버튼 첫번째와 마지막 수
 		this.from = ((page - 1) / pageSize) * pageSize + 1;
 		this.end = from + pageSize - 1;

@@ -66,7 +66,7 @@
 					<p>"My mission in life is not merely to survive, but to thrive
 						and to do so with some passion, some compassion, some humor, and
 						some style."</p>
-							<button class="btn">
+					<button class="btn">
 						<a href="/usr/artist3">자세히보기</a>
 					</button>
 				</div>
@@ -91,7 +91,7 @@
 					<p>"My mission in life is not merely to survive, but to thrive
 						and to do so with some passion, some compassion, some humor, and
 						some style."</p>
-							<button class="btn">
+					<button class="btn">
 						<a href="/usr/artist2">자세히보기</a>
 					</button>
 				</div>
@@ -148,9 +148,9 @@
 					<p>"My mission in life is not merely to survive, but to thrive
 						and to do so with some passion, some compassion, some humor, and
 						some style."</p>
-<!-- 							<button class="btn"> -->
-<!-- 						<a href="/usr/artist2">자세히보기</a> -->
-<!-- 					</button> -->
+					<!-- 							<button class="btn"> -->
+					<!-- 						<a href="/usr/artist2">자세히보기</a> -->
+					<!-- 					</button> -->
 				</div>
 			</div>
 		</div>
@@ -230,7 +230,7 @@
 	justify-content: flex-end;
 	gap: 1.5rem;
 	padding: 2.5rem;
-	width: calc((100%/ 3) - var(--gap));
+	width: calc(( 100%/ 3) - var(--gap));
 	height: 100%;
 	border-radius: 1rem;
 	transition: width 0.5s ease-in-out;
@@ -306,8 +306,17 @@
 
 .profile_quote button {
 	z-index: 1;
+	white-space: nowrap;
+	margin-right: 0;
 }
-
+/* 반응형 스타일 */
+@media ( max-width : 1280px) {
+	.profile_quote button {
+		z-index: 1;
+		white-space: nowrap;
+		margin-right: 100%;
+	}
+}
 
 .wrapper {
 	display: grid;

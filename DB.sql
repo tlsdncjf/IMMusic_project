@@ -387,7 +387,7 @@ CREATE TABLE artist(
 );
 
 
-# artist_contact 테이블 추가
+# contact_artist 테이블 추가
 CREATE TABLE contact_artist (
   id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, # 번호
   a_name CHAR(10) NOT NULL,
@@ -409,10 +409,38 @@ CREATE TABLE contact_artist (
   delDate DATETIME DEFAULT NULL # 삭제날짜
 );
 
+#contact_artist TD
+INSERT INTO contact_artist
+SET regDate = NOW(),
+updateDate = NOW(),
+a_name = '테이름',
+a_birth ='1988-10-2',
+a_gender = 1,
+a_phone = '01029382938',
+a_email = 'test@test.com',
+a_postcode= 2323,
+a_address = '대전시 실험구',
+a_major = '기타',
+a_sns = '카톡',
+a_introduction = '소개글 내용임',
+a_check= 1;
+
+INSERT INTO contact_artist
+SET regDate = NOW(),
+updateDate = NOW(),
+a_name = '테이름2',
+a_birth ='1988-10-2',
+a_gender = 1,
+a_phone = '01029382323',
+a_email = 'test2@test.com',
+a_postcode= 2323,
+a_address = '대전시 실험구2',
+a_major = '기타2',
+a_sns = '카톡2',
+a_introduction = '소개글 내용임2',
+a_check= 1;
+
 # contact 테이블 추가
-
-# drop table concert
-
 CREATE TABLE contact_concert (
   id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, # 번호
   c_name CHAR(10) NOT NULL,
@@ -428,6 +456,31 @@ CREATE TABLE contact_concert (
   delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0, # 삭제상태(0:미삭제,1:삭제)
   delDate DATETIME DEFAULT NULL # 삭제날짜
 );
+
+#contact_concert TD
+INSERT INTO contact_concert
+SET regDate = NOW(),
+updateDate = NOW(),
+c_name = '연주수요기관',
+c_email = 'institute@test.com',
+c_phone = '01092923256',
+c_date = '2024-05-12',`cart_item``cash_log`
+c_postcode = 12534,
+c_address = '수원시 평평',
+c_inquiry = '문의사항 내용임',
+c_check = 1;
+
+INSERT INTO contact_concert
+SET regDate = NOW(),
+updateDate = NOW(),
+c_name = '연주수요기관2',
+c_email = 'institute2@test.com',
+c_phone = '01092922222',
+c_date = '2024-05-12',
+c_postcode = 12534,
+c_address = '수원시 평평2',
+c_inquiry = '문의사항 내용임2',
+c_check = 1;
 
 ###############################################
 
@@ -449,8 +502,8 @@ SELECT * FROM about;
 
 SELECT * FROM artist;
 
-SELECT * FROM artist_contact;
+SELECT * FROM contact_artist;
 
-SELECT * FROM concert_contact;
+SELECT * FROM contact_concert;
 
 

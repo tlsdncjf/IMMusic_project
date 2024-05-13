@@ -24,51 +24,136 @@
 
 
 <style>
-/* 이미지 슬라이드쇼 */
- #testbox {
-    overflow: hidden; /* 넘치는 부분을 잘라냅니다. */
-    position: relative; /* 자식 요소의 위치를 상대적으로 지정합니다. */
-    width: 1200px; /* 테스트를 위한 임시 값으로 슬라이더의 가로 크기를 설정합니다. */
-    height: 200px; /* 슬라이더의 세로 크기를 설정합니다. */
-  }
+/* 앨범 슬라이드쇼 */
+#testbox {
+	overflow: hidden;
+	position: relative;
+	width: 1200px;
+	height: 450px;
+}
 
-  .test {
-    width: 3200px; /* 모든 이미지와 클론 이미지를 포함하는 슬라이더의 가로 크기를 설정합니다. */
-    height: 100%; /* 슬라이더의 세로 크기를 100%로 설정하여 부모 요소의 높이에 맞게 설정합니다. */
-    display: flex; /* 내부 요소를 수평으로 배치하기 위해 flexbox 레이아웃을 사용합니다. */
-    flex-wrap: nowrap; /* 내부 요소가 한 줄에 정렬되도록 합니다. */
-    animation: bannermove 10s linear infinite; /* 슬라이드 애니메이션을 적용합니다. */
-    padding-bottom: 30px; /* 하단 여백을 추가하여 이미지와 테두리가 겹치는 것을 방지합니다. */
-  }
+.test {
+	width: 3720px; /* 이미지 하나의 너비로 설정합니다. */
+	height: 450px;
+	display: flex;
+	flex-wrap: nowrap;
+	animation: bannermove 25s linear infinite;
+	padding-bottom: 30px;
+	position: relative; /* .text-overlay의 위치를 상대적으로 설정합니다. */
+}
 
-  .test > div {
-    flex: 0 0 auto; /* 내부 요소가 flexbox의 아이템으로 동작하도록 설정합니다. */
-    height: 200px; /* 내부 요소의 높이를 슬라이더의 높이와 일치시킵니다. */
-    line-height: 200px; /* 텍스트를 수직으로 가운데 정렬하기 위해 사용합니다. */
-    vertical-align: top; /* 내부 요소를 위쪽으로 정렬합니다. */
-    text-align: center; /* 내부 요소의 텍스트를 가운데 정렬합니다. */
-  }
+.test > div {
+	flex: 0 0 auto;
+	height: 250px;
+	width: 250px;
+	position: relative; /* .text-overlay의 위치를 상대적으로 설정합니다. */
+	margin: 0 10px;
+}
 
-  img {
-    width: 100%; /* 이미지를 부모 요소의 너비에 맞게 설정합니다. */
-    height: 100%; /* 이미지를 부모 요소의 높이에 맞게 설정합니다. */
-    padding: 10px; /* 이미지 주위에 여백을 추가합니다. */
-  }
+.test img {
+	width: 100%; /* 이미지를 부모 요소의 너비에 맞게 설정합니다. */
+	height: 100%; /* 이미지를 부모 요소의 높이에 맞게 설정합니다. */
+	border-radius: 5px;
+}
 
-  @keyframes bannermove {
-    0% {
-      transform: translate(0, 0); /* 애니메이션 시작 지점으로 이동합니다. */
+.text-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+ 	background-color: rgba(0, 0, 0, 0.7); 
+	color: white;
+	transition: opacity 0.3s ease;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.test>div:hover .text-overlay {
+	opacity: 1;
+}
+
+
+@keyframes slideAnimation {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-600px); /* 이미지의 너비에 맞게 수정하세요 */
+        }
     }
-    100% {
-      transform: translate(-50%, 0); /* 애니메이션 종료 지점으로 이동합니다. */
-    }
-  }
 
-  #testbox:hover .test {
-    animation-play-state: paused; /* 마우스를 올리면 애니메이션을 일시정지합니다. */
-  }
+#testbox:hover .test {
+	animation-play-state: paused; /* 마우스를 올리면 애니메이션을 일시정지합니다. */
+}
+
 /* 앨범 슬라이드 */
 
+/* 아티스트 슬라이드쇼 */
+#testbox2 {
+    overflow: hidden;
+    position: relative;
+    width: 1200px;
+    height: 450px;
+}
+
+.test2 {
+    width: 3720px; /* 이미지 하나의 너비로 설정합니다. */
+    height: 450px;
+    display: flex;
+    flex-wrap: nowrap;
+    animation: bannermove 25s linear infinite;
+    padding-bottom: 30px;
+    position: relative; /* .text-overlay의 위치를 상대적으로 설정합니다. */
+}
+
+.test2>div {
+    flex: 0 0 auto;
+    height: 450px;
+    width: 310px;
+    position: relative; /* .text-overlay의 위치를 상대적으로 설정합니다. */
+}
+
+img {
+	width: 100%; /* 이미지를 부모 요소의 너비에 맞게 설정합니다. */
+	height: 100%; /* 이미지를 부모 요소의 높이에 맞게 설정합니다. */
+	padding: 10px; /* 이미지 주위에 여백을 추가합니다. */
+}
+
+.text-overlay2 {
+    position: absolute;
+    bottom: 50%; /* 이미지의 중간을 기준으로 설정합니다. */
+    left: 50%; /* 이미지의 중간을 기준으로 설정합니다. */
+    transform: translate(-50%, -50%); /* 수직 및 수평 가운데 정렬을 위해 사용됩니다. */
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    transition: opacity 0.3s ease;
+    display: inline; /* p 요소를 인라인으로 설정하여 한 줄에 나오게 합니다. */
+}
+
+.test2>div:hover .text-overlay2 {
+    opacity: 1;
+}
+
+@keyframes bannermove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(calc(-100% - 120px), 0);
+    }
+}
+
+#testbox2:hover .test2 {
+    animation-play-state: paused;
+}
+
+/* 아티스트 슬라이드 */
 *, *:before, *:after {
 	box-sizing: border-box;
 	outline: none;
@@ -350,7 +435,7 @@ hr {
 }
 
 .section {
-	padding: 100px;
+	padding-top: 50px;
 }
 
 .section_heder {
@@ -1658,148 +1743,165 @@ hr {
 				</div>
 			</section>
 
-			<section class="section section-gray">
+			<div class="section">
 				<div class="container">
 					<div class="section_heder">
 						<h3 class="section_suptitle">Who we you</h3>
 						<h2 class="section_title">단원 소개</h2>
 						<div class="section__Text">
 							<p>“비바기타앙상블”은 2012년부터 기타리스트 허원경이 이끄는 앙상블 팀으로 서울대학교 동문으로 이루어진 클래식기타 연주팀이다.</p>
-							<p>Heo trio Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima aspernatur numquam dolorem
-								nostrum veritatis maxime iure ullam vitae hic consequuntur quia molestiae consectetur. Incidunt deserunt
-								recusandae vel eveniet aspernatur delectus.</p>
 						</div>
 					</div>
+				
+			<div id="testbox2">
+				<div class="test2" id="slider">
+					<div>
+        				<img src="/resource/허원경 프로필사진.png">
+        				<div class="text-overlay2">
+                			<p>허원경</p>
+               		 		<p>리더(클래식 기타)</p>
+            			</div>
+    				</div>
 
+					<div>
+						<img src="/resource/구보근 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>구본근</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
 
-					<div class="cards1">
-						<div class="card__item1">
-							<div class="inner-card">
-								<div class="card-imag">
-									<img src="/resource/허원경 프로필사진.png" alt="Изображение">
-									<div class="card_text">
-										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-info">
-								<div class="card-name">허원경</div>
-								<div class="card-prof">리더(클래식 기타)</div>
-							</div>
-						</div>
+					<div>
+						<img src="/resource/원유현 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>원유현</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
 
-						<div class="card__item2">
-							<div class="inner-card">
-								<div class="card-imag">
-									<img src="/resource/구보근 프로필사진.png" alt="Изображение">
-									<div class="card_text">
-										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-info">
-								<div class="card-name">구본근</div>
-								<div class="card-prof">단원(클래식 기타)</div>
-							</div>
-						</div>
+					<div>
+						<img src="/resource/임재민 프로필사진2.png">
+						<div class="text-overlay2">
+                			<p>임재민</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
 
-						<div class="card__item3">
-							<div class="inner-card">
-								<div class="card-imag">
-									<img src="/resource/원유현 프로필사진.png" alt="Изображение">
-									<div class="card_text">
-										<div class="social">
-											<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-											</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-info">
-								<div class="card-name">원유현</div>
-								<div class="card-prof">단원(클래식 기타)</div>
-							</div>
-						</div>
+					<div>
+						<img src="/resource/허대욱 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허대욱</p>
+               		 		<p>단원(재즈 피아노)</p>
+            			</div>
+					</div>
 
-						<div class="cards2">
-							<div class="card__item">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/임재민 프로필사진2.png" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">임재민</div>
-									<div class="card-prof">단원(클래식 기타)</div>
-								</div>
-							</div>
+					<div>
+						<img src="/resource/허병훈 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허병훈</p>
+               		 		<p>고문</p>
+            			</div>
+					</div>
+					<!--   clone2     -->
+					<div class="clone3">
+						<img src="/resource/허원경 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>허원경</p>
+               		 		<p>리더(클래식 기타)</p>
+            			</div>
+					</div>
 
-							<div class="card__item">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/허대욱 프로필사진.jpg" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">허대욱</div>
-									<div class="card-prof">단원(재즈 피아노)</div>
-								</div>
-							</div>
-							<div class="card__item">
-								<div class="inner-card">
-									<div class="card-imag">
-										<img src="/resource/허병훈 프로필사진.jpg" alt="Изображение">
-										<div class="card_text">
-											<div class="social">
-												<a href="#" class="social_iteam" target="_blank"> <i class="fab fa-facebook-f"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-twitter"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-pinterest-p"></i>
-												</a> <a href="#" class="social_iteam" target="_blank"> <i class="fab fa-instagram"></i>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-info">
-									<div class="card-name">허병훈</div>
-									<div class="card-prof">고문</div>
-								</div>
-							</div>
-						</div>
-			</section>
+					<div class="clone3">
+						<img src="/resource/구보근 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>구본근</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/원유현 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>원유현</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/임재민 프로필사진2.png">
+						<div class="text-overlay2">
+                			<p>임재민</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/허대욱 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허대욱</p>
+               		 		<p>단원(재즈 피아노)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/허병훈 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허병훈</p>
+               		 		<p>고문</p>
+            			</div>
+					</div>
+					<div class="clone3">
+						<img src="/resource/허원경 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>허원경</p>
+               		 		<p>리더(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/구보근 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>구본근</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/원유현 프로필사진.png">
+						<div class="text-overlay2">
+                			<p>원유현</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/임재민 프로필사진2.png">
+						<div class="text-overlay2">
+                			<p>임재민</p>
+               		 		<p>단원(클래식 기타)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/허대욱 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허대욱</p>
+               		 		<p>단원(재즈 피아노)</p>
+            			</div>
+					</div>
+
+					<div class="clone3">
+						<img src="/resource/허병훈 프로필사진.jpg">
+						<div class="text-overlay2">
+                			<p>허병훈</p>
+               		 		<p>고문</p>
+            			</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 			<div class="section ">
 				<div class="container">
@@ -1812,59 +1914,160 @@ hr {
 								blanditiis architecto? Ut!</p>
 						</div>
 					</div>
+					
 					<div id="testbox">
-						<div class="test" id="slider">
-							<div>
-								<img src="/resource/음악앨범 1.jpg" />
-							</div>
+    					<div class="test" id="slider">
+        					<div>
+            					<img src="/resource/음악앨범 1.jpg" />
+            					<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
+        					</div>
+							
 							<div>
 								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
 							</div>
+							
 							<div>
 								<img src="/resource/음악앨범 3.jpg" />
+								<div class="text-overlay">
+                					<p>trigram</p>
+            					</div>
 							</div>
 							<div>
 								<img src="/resource/음악앨범 4.jpg" />
+								<div class="text-overlay">
+                					<p>Le Moment Disperse</p>
+            					</div>
 							</div>
 							<div>
 								<img src="/resource/음악앨범 5.jpg" />
+								<div class="text-overlay">
+                					<p>to the west</p>
+            					</div>
 							</div>
 							<div>
 								<img src="/resource/음악앨범 7.jpg" />
+								<div class="text-overlay">
+                					<p>Aire de Espana</p>
+            					</div>
 							</div>
 							<div>
 								<img src="/resource/음악앨범 1.jpg" />
+								<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
 							</div>
 							<div>
 								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
 							</div>
 							<!--   clone     -->
 							<div class="clone">
 								<img src="/resource/음악앨범 1.jpg" />
+								<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 3.jpg" />
+								<div class="text-overlay">
+                					<p>trigram</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 4.jpg" />
+								<div class="text-overlay">
+                					<p>Le Moment Disperse</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 5.jpg" />
+								<div class="text-overlay">
+                					<p>to the west</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 7.jpg" />
+								<div class="text-overlay">
+                					<p>Aire de Espana</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 1.jpg" />
+								<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
 							</div>
 							<div class="clone">
 								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
+							</div>
+							<!--   clone2     -->
+							<div class="clone">
+								<img src="/resource/음악앨범 1.jpg" />
+								<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 3.jpg" />
+								<div class="text-overlay">
+                					<p>trigram</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 4.jpg" />
+								<div class="text-overlay">
+                					<p>Le Moment Disperse</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 5.jpg" />
+								<div class="text-overlay">
+                					<p>to the west</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 7.jpg" />
+								<div class="text-overlay">
+                					<p>Aire de Espana</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 1.jpg" />
+								<div class="text-overlay">
+                					<p>will it be spring tomorrow</p>
+            					</div>
+							</div>
+							<div class="clone">
+								<img src="/resource/음악앨범 2.jpg" />
+								<div class="text-overlay">
+                					<p>interval of parallel</p>
+            					</div>
 							</div>
 						</div>
 					</div>
+				</div>
 
 					<section class="section section-gray" id="work">
 						<div class="container">

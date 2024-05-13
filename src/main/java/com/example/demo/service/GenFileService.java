@@ -267,4 +267,9 @@ public class GenFileService {
 		}
 	}
 
+	public int getGenFilecnt(int id) {
+
+		return genFileRepository.getGenFilecnt(id);
+	}
+
 }

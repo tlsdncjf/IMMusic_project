@@ -120,7 +120,7 @@
 		if ($('body').hasClass('main-page')) {
 
 			// 애니메이션이 시작되기 전에 스크롤을 막습니다.
-// 			$('body').css('overflow', 'hidden');
+			$('body').css('overflow', 'hidden');
 			setTimeout(function() {
 
 				$('#intro-top').animate({
@@ -133,7 +133,7 @@
 				}, 'slow', function() {
 					$(this).hide(); // 애니메이션 완료 후 숨김
 
-// 					scroll();
+					scroll();
 
 				});
 			}, 3500); // 3000 밀리초 = 3초
@@ -168,11 +168,17 @@
 					'DOMContentLoaded',
 					function() {
 						var headBg = document.querySelector('.head-bg');
+						var headText = document
+								.querySelector('.head-text-style');
 						var scrolled = false;
 
 						// 초기 상태에서 배경을 투명하게 설정
 						headBg.style.backgroundColor = 'transparent';
 						headBg.style.borderBottom = 'none';
+
+						if (window.location.pathname === "/usr/home/main") {
+							headText.style.color = '#fff';
+						}
 
 						window
 								.addEventListener(
@@ -184,6 +190,12 @@
 												headBg.style.backgroundColor = 'transparent';
 												headBg.style.borderBottom = 'none';
 												headBg.style.boxShadow = 'none';
+												if (window.location.pathname === "/usr/home/main") {
+													headText.style.color = '#fff';
+												} else {
+													headText.style.color = 'black';
+												}
+
 												// 스크롤이 0일 때 scrolled 변수 초기화
 												scrolled = false;
 											} else if (!scrolled) {
@@ -192,6 +204,7 @@
 												headBg.style.transition = 'background-color 0.3s, border-bottom 0.3s, box-shadow 0.3s';
 												headBg.style.backgroundColor = '#f2ede2';
 												headBg.style.boxShadow = '0px 0px 15px 0px rgba(0,0,0,.2)';
+												headText.style.color = 'black';
 											}
 										});
 					});
@@ -199,30 +212,32 @@
 
 
 
+
 </head>
 
 <c:choose>
-    <c:when test="${fn:contains(pageContext.request.requestURI, '/usr/home/main')}">
-        <body class="main-page">
-    </c:when>
-    <c:otherwise>
-        <body>
-    </c:otherwise>
+	<c:when
+		test="${fn:contains(pageContext.request.requestURI, '/usr/home/main')}">
+		<body class="main-page">
+	</c:when>
+	<c:otherwise>
+		<body>
+	</c:otherwise>
 </c:choose>
 
 <c:if
 	test="${fn:contains(pageContext.request.requestURI, '/usr/home/main')}">
-<!-- 	<div class="flex justify-center content-center"> -->
-<!-- 		<div id="intro-top"> -->
-<!-- 			<p class="mt-10">LOADING</p> -->
-<!-- 		</div> -->
-<!-- 		<div id="intro-logo"> -->
-<!-- 			<img src="/resource/IMMusicLogo자름.png" /> -->
-<!-- 		</div> -->
-<!-- 		<div id="intro-bottom"> -->
-<!-- 			<p class="mb-10">IMMusic & Art</p> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+	<div class="flex justify-center content-center">
+		<div id="intro-top">
+			<p class="mt-10">LOADING</p>
+		</div>
+		<div id="intro-logo">
+			<img src="/resource/IMMusicLogo자름.png" />
+		</div>
+		<div id="intro-bottom">
+			<p class="mb-10">IMMusic & Art</p>
+		</div>
+	</div>
 </c:if>
 
 

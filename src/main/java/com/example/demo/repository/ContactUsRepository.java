@@ -1,8 +1,13 @@
 package com.example.demo.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import com.example.demo.vo.ContactArtist;
+import com.example.demo.vo.ContactConcert;
 
 @Mapper
 public interface ContactUsRepository {
@@ -52,5 +57,17 @@ public interface ContactUsRepository {
 			FROM contact_artist;
 			""")
 	public int getCurrentPressId();
+
+	@Select("""
+			SELECT *
+			FROM contact_artist;
+			""")
+	public List<ContactArtist> getContactArtistList();
+
+	@Select("""
+			SELECT *
+			FROM contact_concert;
+			""")
+	public List<ContactConcert> getContactConcertList();
 
 }

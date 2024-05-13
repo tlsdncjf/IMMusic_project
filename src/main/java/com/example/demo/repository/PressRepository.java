@@ -18,12 +18,10 @@ public interface PressRepository {
 			press SET
 			regDate = NOW(),
 			updateDate = NOW(),
-			memberId = #{memberId},
 			title = #{title},
-			`body` = #{body},
-			boardId = #{boardId}
+			`body` = #{body}
 			""")
-	public void writePress(String title, String body, int memberId, int boardId);
+	public void writePress(String title, String body);
 
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
@@ -36,14 +34,9 @@ public interface PressRepository {
 	public Press getPress(int id);
 
 	@Select("""
-			SELECT P.*, M.nickname AS extra__writer, B.code AS board_code
+			SELECT *
 			FROM press AS P
-			INNER JOIN `member` AS M
-			ON P.memberId = M.id
-			INNER JOIN board AS B
-			ON P.boardId = B.id
-			GROUP BY P.id
-			HAVING P.id = #{id}
+			WHERE P.id = #{id}
 			""")
 	public Press getForPrintPress(int id);
 	
@@ -66,38 +59,25 @@ public interface PressRepository {
 	public void modifyPress(int id, String title, String body);
 
 	@Select("""
-			SELECT P.*, M.nickname AS extra__writer
+			SELECT P.*
 			FROM press AS P
-			INNER JOIN `member` AS M
-			ON P.memberId = M.id
 			ORDER BY P.id DESC
 			""")
 	public List<Press> getPresses();
 
 	@Select("""
 			<script>
-			SELECT P.*, M.nickname AS extra__writer, IFNULL(COUNT(R.id),0) AS extra__repliesCnt
+			SELECT P.*
 			FROM press AS P
-			INNER JOIN `member` AS M
-			ON P.memberId = M.id
-			LEFT JOIN `reply` AS R 
-			ON P.id = R.relId
 			WHERE 1
 			<if test="searchKeyword != ''">
 				<choose>
 					<when test = "searchKeywordTypeCode == 'title'">
 						AND P.title LIKE CONCAT('%',#{searchKeyword},'%')
 					</when>
-					<when test = "searchKeywordTypeCode == 'extra__writer'">
-						AND M.nickname LIKE CONCAT('%',#{searchKeyword},'%')
-					</when>
 					<when test="searchKeywordTypeCode == 'body'">
 						AND P.`body` LIKE CONCAT('%',#{searchKeyword},'%')
 					</when>
-					<otherwise>
-						AND P.title LIKE CONCAT('%',#{searchKeyword},'%')
-						OR P.body LIKE CONCAT('%',#{searchKeyword},'%')
-					</otherwise>
 					</choose>
 			</if>
 			GROUP BY P.id
@@ -115,24 +95,15 @@ public interface PressRepository {
 			<script>
 			SELECT COUNT(*) AS cnt
 			FROM press AS P
-			INNER JOIN `member` AS M
-			ON P.memberId = M.id
 			WHERE 1
 			<if test="searchKeyword != ''">
 				<choose>
 					<when test="searchKeywordTypeCode == 'title'">
 						AND P.title LIKE CONCAT('%',#{searchKeyword},'%')
 					</when>
-					<when test = "searchKeywordTypeCode == 'extra__writer'">
-						AND M.nickname LIKE CONCAT('%',#{searchKeyword},'%')
-					</when>
 					<when test="searchKeywordTypeCode == 'body'">
 						AND P.body LIKE CONCAT('%',#{searchKeyword},'%')
 					</when>
-					<otherwise>
-						AND P.title LIKE CONCAT('%',#{searchKeyword},'%')
-						OR P.body LIKE CONCAT('%',#{searchKeyword},'%')
-					</otherwise>
 				</choose>
 			</if>
 			ORDER BY P.id DESC

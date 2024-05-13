@@ -36,7 +36,7 @@ img {
 	vertical-align: middle;
 }
 
-.btn {
+.listButton {
 	color: #ffffff;
 	padding: 0.8rem;
 	font-size: 14px;
@@ -48,9 +48,10 @@ img {
 	cursor: pointer;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	background: transparent;
+	text-align: center;
 }
 
-.btn:hover {
+.listButton:hover {
 	background-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -80,6 +81,8 @@ img {
 }
 
 .card {
+	width: 100%;
+	height: 100%;
 	background-color: white;
 	border-radius: 10px;
 	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.15);
@@ -88,9 +91,19 @@ img {
 	overflow: hidden;
 }
 
+.card_image {
+	width: 100%;
+	height: 100%;
+}
+
+.card_image > img {
+	width: 100%;
+	height: 100%;
+}
+
 .card_content {
 	padding: 1rem;
-	 background: linear-gradient(to bottom left, #b3a78f 20%, #f2ede2 80%); 
+	background: linear-gradient(to bottom left, #b3a78f 20%, #f2ede2 80%);
 	/* background: #b3a78f; */
 }
 
@@ -117,26 +130,33 @@ img {
 	margin-top: 35px;
 	text-align: center;
 }
+
+.btn-group{
+	display: block;
+	color: black;
+}
 </style>
 
+<div class="greet-bg">
+	<p>
+		IMMusic <br>& Art
+	</p>
+</div>
 
 <div class="main">
-
-
-	<div>${press}</div>
-
 
 	<ul class="cards">
 		<li class="cards_item">
 			<div class="card">
 				<div class="card_image">
-					<img src="https://picsum.photos/500/300/?image=10">
+					<img src="${rq.getImgUri(press.get(0).getId())}"
+				onerror="${rq.profileFallbackImgOnErrorHtml}" alt="">
 				</div>
 				<div class="card_content">
 					<h2 class="card_title">${press.get(0).getTitle() }</h2>
 					<p class="card_text">${press.get(0).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(0).getId() }">Read More</a>
+					<a class="listButton " href="detail?id=${press.get(0).getId() }">Read
+						More</a>
 				</div>
 			</div>
 		</li>
@@ -148,8 +168,8 @@ img {
 				<div class="card_content">
 					<h2 class="card_title">${press.get(1).getTitle() }</h2>
 					<p class="card_text">${press.get(1).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(1).getId() }">Read More</a>
+					<a class="listButton " href="detail?id=${press.get(1).getId() }">Read
+						More</a>
 				</div>
 			</div>
 		</li>
@@ -161,8 +181,8 @@ img {
 				<div class="card_content">
 					<h2 class="card_title">${press.get(2).getTitle() }</h2>
 					<p class="card_text">${press.get(2).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(2).getId() }">Read More</a>
+					<a class="listButton " href="detail?id=${press.get(2).getId() }">Read
+						More</a>
 				</div>
 			</div>
 		</li>
@@ -174,8 +194,8 @@ img {
 				<div class="card_content">
 					<h2 class="card_title">${press.get(3).getTitle() }</h2>
 					<p class="card_text">${press.get(3).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(3).getId() }">Read More</a>
+					<a class="listButton " href="detail?id=${press.get(3).getId() }">Read
+						More</a>
 				</div>
 			</div>
 		</li>
@@ -185,10 +205,10 @@ img {
 					<img src="https://picsum.photos/500/300/?image=17">
 				</div>
 				<div class="card_content">
-					<h2 class="card_title">${press.get(3).getTitle() }</h2>
-					<p class="card_text">${press.get(3).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(3).getId() }">Read More</a>
+					<h2 class="card_title">${press.get(4).getTitle() }</h2>
+					<p class="card_text">${press.get(4).getBody() }</p>
+					<a class="listButton "
+						href="detail?id=${press.get(4).getId() }">Read More</a>
 				</div>
 			</div>
 		</li>
@@ -198,10 +218,10 @@ img {
 					<img src="https://picsum.photos/500/300/?image=2">
 				</div>
 				<div class="card_content">
-					<h2 class="card_title">${press.get(2).getTitle() }</h2>
-					<p class="card_text">${press.get(2).getBody() }</p>
-					<a class="btn card_btn"
-						href="detailTest?id=${press.get(2).getId() }">Read More</a>
+					<h2 class="card_title">${press.get(5).getTitle() }</h2>
+					<p class="card_text">${press.get(5).getBody() }</p>
+					<a class="listButton "
+						href="detail?id=${press.get(5).getId() }">Read More</a>
 				</div>
 			</div>
 		</li>
@@ -217,17 +237,17 @@ img {
 		<a
 			href="list??boardId=${boardId }&page=1&searchKeywordTypeCode=${param.searchKeywordTypeCode}&searchKeyword=${param.searchKeyword}">맨앞</a>
 		<c:if test="${page > pagination.pageSize }">
-			<a
+			<a 
 				href="list?boardId=${boardId }&page=${pagination.from - 1}&searchKeywordTypeCode=${param.searchKeywordTypeCode}&searchKeyword=${param.searchKeyword}">◀</a>
 		</c:if>
 
 		<c:forEach begin="${pagination.from }" end="${pagination.end}" var="i">
-			<a class="btn btn-sm ${page == i ? 'btn-active' : '' }"
+			<a class=" btn btn-sm ${page == i ? 'btn-active' : '' }"
 				href="?boardId=${boardId }&page=${i }&searchKeywordTypeCode=${param.searchKeywordTypeCode}&searchKeyword=${param.searchKeyword}">${i }</a>
 		</c:forEach>
 
 		<c:if test="${pagination.end < pagination.totalPage }">
-			<a
+			<a 
 				href="list?boardId=${boardId }&page=${pagination.from + pagination.pageSize}&searchKeywordTypeCode=${param.searchKeywordTypeCode}&searchKeyword=${param.searchKeyword}">▶</a>
 		</c:if>
 		<a

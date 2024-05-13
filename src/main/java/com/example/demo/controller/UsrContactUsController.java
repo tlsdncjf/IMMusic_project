@@ -14,7 +14,8 @@ import org.springframework.web.multipart.MultipartRequest;
 import com.example.demo.service.ContactUsService;
 import com.example.demo.service.GenFileService;
 import com.example.demo.util.Ut;
-import com.example.demo.vo.Blog;
+import com.example.demo.vo.ContactArtist;
+import com.example.demo.vo.ContactConcert;
 import com.example.demo.vo.ResultData;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -48,8 +49,10 @@ public class UsrContactUsController {
 		ResultData<Integer> signupRd = contactUsService.signup(name, fullemail, cellphoneNum, concertdate, postcode, fulladdress, inquiry, check);
 		
 		contactUsService.sendsignupMessage(cellphoneNum, name);
+		contactUsService.sendsignupMessageToAdmin("01030841288", name);
 		
-		return Ut.jsReplace("S-1", signupRd.getMsg(), "../home/main");
+		
+		return Ut.jsReplace("S-1", signupRd.getMsg(), "../contactUs/inquiry");
 	}
 	
 	@RequestMapping("/usr/contactUs/application")
@@ -93,8 +96,9 @@ public class UsrContactUsController {
 		}
 		
 		contactUsService.sendjoinMessage(cellphoneNum, name);
+		contactUsService.sendjoinMessageToAdmin("01030841288", name);
 		
-		return Ut.jsReplace("S-1", joinRd.getMsg(), "../home/main");
+		return Ut.jsReplace("S-1", joinRd.getMsg(), "../contactUs/inquiry");
 	}
 	
 	@RequestMapping("/usr/contactUs/artist")
@@ -108,8 +112,23 @@ public class UsrContactUsController {
 
 		return "usr/contactUs/contactUs";
 	}
+
+	@RequestMapping("/usr/contactUs/inquiry")
+	public String Inquiry() {
+
+		return "usr/contactUs/inquiry";
+	}
 	
+	@RequestMapping("/usr/contactUs/contactList")
+	public String contactList(Model model) {
+		
+		List<ContactArtist> contactArtists  = contactUsService.getContactArtistList();
+		List<ContactConcert> contactConcerts  = contactUsService.getContactConcertList();
+		
+		model.addAttribute("contactArtists", contactArtists);
+		model.addAttribute("contactConcerts", contactConcerts);
 
-
+		return "usr/contactUs/contactList";
+	}
 
 }

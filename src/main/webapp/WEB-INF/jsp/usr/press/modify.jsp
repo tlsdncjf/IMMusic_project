@@ -1,14 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="PRESS MODIFY"></c:set>
+<link rel="stylesheet" href="/resource/background.css" />
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../common/toastUiEditorLib.jspf"%>
 
-<!-- Article modify 관련 -->
+<style>
+.input {
+	border-radius: 5px;
+}
+
+.writebtn {
+	margin: 5px 0;
+	text-align: right;
+	height: 40px;
+}
+
+.writebutton {
+	width: 60px;
+	height: 100%;
+	text-align: center;
+	padding: 10px 15px;
+	font-size: 0.8rem;
+	border-radius: 5px;
+	background-color: #f2ede2;
+}
+
+.writebutton:hover {
+	color:white;
+	background-color: #b3a78f;
+}
+
+.post-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 10px;
+}
+</style>
+
+<!-- press modify 관련 -->
 <script type="text/javascript">
-	let PressModify__submitFormDone = false;
-	function PressModify__submit(form) {
-		if (PressModify__submitFormDone) {
+	let pressModify__submitFormDone = false;
+	function pressModify__submit(form) {
+		if (pressModify__submitFormDone) {
 			return;
 		}
 		form.title.value = form.title.value.trim();
@@ -24,76 +59,51 @@
 			editor.focus();
 			return;
 		}
+		$('#fileInput').attr('name', 'file__press__' + ${currentId} + '__extra__Img__1');
+		
 		form.body.value = markdown;
-		PressModify__submitFormDone = true;
+		pressModify__submitFormDone = true;
 		form.submit();
 	}
 </script>
 
-<section class="mt-8 text-xl px-4">
-	<div class="mx-auto">
-		<form action="../press/doModify" method="POST" onsubmit="PressModify__submit(this); return false;">
-			<input type="hidden" name="body">
-			<input type="hidden" name="id" value="${press.id }" />
-			<table class="modify-box table-box-1" border="1">
-				<tbody>
-					<tr>
-						<th>번호</th>
-						<td>${press.id }</td>
-					</tr>
-					<tr>
-						<th>작성날짜</th>
-						<td>${press.regDate }</td>
-					</tr>
-					<tr>
-						<th>수정날짜</th>
-						<td>${press.updateDate }</td>
-					</tr>
-					<tr>
-						<th>작성자</th>
-						<td>${press.extra__writer }</td>
-					</tr>
-					<tr>
-						<th>제목</th>
-						<td>
-							<input class="input input-bordered w-full max-w-xs" type="text" name="title" placeholder="제목을 입력해주세요"
-								value="${press.title }" />
-						</td>
-					</tr>
+<div class="greet-bg">
+	<p>
+		IMMusic <br>& Art
+	</p>
+</div>
 
-					<tr>
-						<th>내용</th>
-						<td>
-							<%-- 								<textarea class="input input-bordered w-full max-w-xs" type="text" name="body" placeholder="내용을 입력해주세요" />${article.body }</textarea> --%>
-							<div class="toast-ui-editor">
-								<script type="text/x-template">${press.body }
-      </script>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th></th>
-						<td>
-							<button class="btn btn-info" type="submit" value="수정">수정</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
-		<div class="btns">
-			<button class="btn btn-outline" type="button" onclick="history.back();">뒤로가기</button>
-<%-- 			<c:if test="${article.userCanModify }"> --%>
-<%-- 				<a class="btn btn-outline" href="../article/modify?id=${article.id }">수정</a> --%>
-<%-- 			</c:if> --%>
-			<c:if test="${press.userCanDelete }">
-				<a class="btn btn-outline" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
-					href="../press/doDelete?id=${press.id }">삭제</a>
-			</c:if>
-
+<section>
+	<form action="../press/doModify" method="POST" onsubmit="pressModify__submit(this); return false;">
+		<input type="hidden" name="id" value="${press.id }" >
+		<input type="hidden" name="body">
+		<div class="post-container">
+			<div style="display: flex; justify-content: space-between;">
+				<div class="mb-5">
+					<div class="option">
+						<div class="ml-1 mt-2 mb-1 flex">
+							제목: <input class="input input-bordered w-full max-w-xs mb-3" autocomplete="off" type="text" value="${press.title}" name="title" style="height: 40px" />
+					    </div>
+					</div>
+					<div class="ml-1 mt-2 mb-1">작성일: ${press.regDate.substring(0,10) }</div>
+					<div class="ml-1 mt-2 mb-1">수정일: ${press.updateDate.substring(0,10) }</div>
+					<div class = "ml-1 mt-2 mb-1">첨부이미지    
+						<input id="fileInput" placeholder="이미지를 선택해주세요" type="file" />
+					</div>
+				</div>
+			</div>
+			<div class="toast-ui-editor">
+				<script type="text/x-template">${press.body } </script>
+			</div>
+			<div class="writebtn">
+					<button class="writebutton btn-outline" type="submit" value="수정">수정</button>
+			</div>
 		</div>
-
-	</div>
+	</form>
 </section>
+
+
+</html>
 
 
 

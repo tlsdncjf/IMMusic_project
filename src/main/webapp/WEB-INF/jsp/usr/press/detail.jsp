@@ -1,415 +1,104 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="pageTitle" value="PRESS DETAIL"></c:set>
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../common/toastUiEditorLib.jspf"%>
 
-<!-- <iframe src="http://localhost:8081/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> -->
 
-<!-- 변수 -->
-<script>
-	const params = {};
-	params.id = parseInt('${param.id}');
-	params.memberId = parseInt('${loginedMemberId}');
-	
-	console.log(params);
-	console.log(params.memberId);
-	
-	var isAlreadyAddGoodRp = ${isAlreadyAddGoodRp};
-	var isAlreadyAddBadRp = ${isAlreadyAddBadRp};
-	
-	
-</script>
-
-<!-- 조회수 -->
-<script>
-	function PressDetail__doIncreaseHitCount() {
-		const localStorageKey = 'press__' + params.id + '__alreadyView';
-
-		if (localStorage.getItem(localStorageKey)) {
-			return;
-		}
-
-		localStorage.setItem(localStorageKey, true);
-
-		$.get('../press/doIncreaseHitCountRd', {
-			id : params.id,
-			ajaxMode : 'Y'
-		}, function(data) {
-			$('.press-detail__hit-count').empty().html(data.data1);
-		}, 'json');
-	}
-
-	$(function() {
-		// 		PressDetail__doIncreaseHitCount();
-		setTimeout(PressDetail__doIncreaseHitCount, 2000);
-	});
-</script>
-
-<!-- 좋아요 싫어요  -->
-<script>
-	<!-- 좋아요 싫어요 버튼	-->
-	function checkRP() {
-		if(isAlreadyAddGoodRp == true){
-			$('#likeButton').toggleClass('btn-outline');
-		}else if(isAlreadyAddBadRp == true){
-			$('#DislikeButton').toggleClass('btn-outline');
-		}else {
-			return;
-		}
-	}
-	
-	function doGoodReaction(pressId) {
-		if(isNaN(params.memberId) == true){
-			if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
-				var currentUri = encodeURIComponent(window.location.href);
-				window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
-			}
-			return;
-		}
-		
-		$.ajax({
-			url: '/usr/reactionPoint/doGoodReaction',
-			type: 'POST',
-			data: {relTypeCode: 'press', relId: pressId},
-			dataType: 'json',
-			success: function(data){
-				console.log(data);
-				console.log('data.data1Name : ' + data.data1Name);
-				console.log('data.data1 : ' + data.data1);
-				console.log('data.data2Name : ' + data.data2Name);
-				console.log('data.data2 : ' + data.data2);
-				if(data.resultCode.startsWith('S-')){
-					var likeButton = $('#likeButton');
-					var likeCount = $('#likeCount');
-					var DislikeButton = $('#DislikeButton');
-					var DislikeCount = $('#DislikeCount');
-					
-					if(data.resultCode == 'S-1'){
-						likeButton.toggleClass('btn-outline');
-						likeCount.text(data.data1);
-					}else if(data.resultCode == 'S-2'){
-						DislikeButton.toggleClass('btn-outline');
-						DislikeCount.text(data.data2);
-						likeButton.toggleClass('btn-outline');
-						likeCount.text(data.data1);
-					}else {
-						likeButton.toggleClass('btn-outline');
-						likeCount.text(data.data1);
-					}
-					
-				}else {
-					alert(data.msg);
-				}
-		
-			},
-			error: function(jqXHR,textStatus,errorThrown) {
-				alert('좋아요 오류 발생 : ' + textStatus);
-
-			}
-			
-		});
-	}
-	
-	
-	
-	function doBadReaction(pressId) {
-		
-		if(isNaN(params.memberId) == true){
-			if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
-				var currentUri = encodeURIComponent(window.location.href);
-				window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
-			}
-			return;
-		}
-		
-	 $.ajax({
-			url: '/usr/reactionPoint/doBadReaction',
-			type: 'POST',
-			data: {relTypeCode: 'press', relId: pressId},
-			dataType: 'json',
-			success: function(data){
-				console.log(data);
-				console.log('data.data1Name : ' + data.data1Name);
-				console.log('data.data1 : ' + data.data1);
-				console.log('data.data2Name : ' + data.data2Name);
-				console.log('data.data2 : ' + data.data2);
-				if(data.resultCode.startsWith('S-')){
-					var likeButton = $('#likeButton');
-					var likeCount = $('#likeCount');
-					var DislikeButton = $('#DislikeButton');
-					var DislikeCount = $('#DislikeCount');
-					
-					if(data.resultCode == 'S-1'){
-						DislikeButton.toggleClass('btn-outline');
-						DislikeCount.text(data.data2);
-					}else if(data.resultCode == 'S-2'){
-						likeButton.toggleClass('btn-outline');
-						likeCount.text(data.data1);
-						DislikeButton.toggleClass('btn-outline');
-						DislikeCount.text(data.data2);
-		
-					}else {
-						DislikeButton.toggleClass('btn-outline');
-						DislikeCount.text(data.data2);
-					}
-			
-				}else {
-					alert(data.msg);
-				}
-			},
-			error: function(jqXHR,textStatus,errorThrown) {
-				alert('싫어요 오류 발생 : ' + textStatus);
-			}
-			
-		});
-	}
-	
-	$(function() {
-		checkRP();
-	});
-</script>
-
-<!-- 댓글 -->
-<script>
-		var ReplyWrite__submitDone = false;
-
-		function ReplyWrite__submit(form) {
-			if (ReplyWrite__submitDone) {
-				alert('이미 처리중입니다');
-				return;
-			}
-			console.log(123);
-			
-			console.log(form.body.value);
-			
-			if (form.body.value.length < 3) {
-				alert('댓글은 3글자 이상 입력해');
-				form.body.focus();
-				return;
-			}
-
-			ReplyWrite__submitDone = true;
-			form.submit();
-
-		}
-</script>
-<!-- 댓글 수정 -->
-<script>
-function toggleModifybtn(replyId) {
-	
-	console.log(replyId);
-	
-	$('#modify-btn-'+replyId).hide();
-	$('#save-btn-'+replyId).show();
-	$('#reply-'+replyId).hide();
-	$('#modify-form-'+replyId).show();
+<style>
+.buttons {
+	text-align: right;
 }
 
-function doModifyReply(replyId) {
-	 console.log(replyId); // 디버깅을 위해 replyId를 콘솔에 출력
-	    
-	    // form 요소를 정확하게 선택
-	    var form = $('#modify-form-' + replyId);
-	    console.log(form); // 디버깅을 위해 form을 콘솔에 출력
-
-	    // form 내의 input 요소의 값을 가져옵니다
-	    var text = form.find('input[name="reply-text-' + replyId + '"]').val();
-	    console.log(text); // 디버깅을 위해 text를 콘솔에 출력
-
-	    // form의 action 속성 값을 가져옵니다
-	    var action = form.attr('action');
-	    console.log(action); // 디버깅을 위해 action을 콘솔에 출력
-	
-    $.post({
-    	url: '/usr/reply/doModify', // 수정된 URL
-        type: 'POST', // GET에서 POST로 변경
-        data: { id: replyId, body: text }, // 서버에 전송할 데이터
-        success: function(data) {
-        	$('#modify-form-'+replyId).hide();
-        	$('#reply-'+replyId).text(data);
-        	$('#reply-'+replyId).show();
-        	$('#save-btn-'+replyId).hide();
-        	$('#modify-btn-'+replyId).show();
-        },
-        error: function(xhr, status, error) {
-            alert('댓글 수정에 실패했습니다: ' + error);
-        }
-	})
+#sub.view {
+	padding-left: 70px;
+	padding-right: 30px;
 }
 
+.detailImage {
+	padding: 60px 30px;
+	width: 50%;
+	height: 50%;
+}
 
-</script>
+#sub.view .title {
+	border-bottom: 1px solid #d6d6d6;
+}
 
+#sub.view .title {
+	border-top: 3px solid #000000;
+	padding: 30px;
+}
 
-<section class="mt-8 text-xl px-4 ">
-	<div class="">
-		<table class="table-box-detail" border="1">
-			<tbody>
-				<tr>
-					<th>번호</th>
-					<td>${press.id }${goodRP}${badRP}</td>
-				</tr>
-				<tr>
-					<th>작성날짜</th>
-					<td>${press.regDate }</td>
-				</tr>
-				<tr>
-					<th>수정날짜</th>
-					<td>${press.updateDate }</td>
-				</tr>
-				<tr>
-					<th>작성자</th>
-					<td>${press.extra__writer }</td>
-				</tr>
-				<tr>
-					<th>좋아요</th>
-					<td id="likeCount">${press.goodReactionPoint }</td>
-				</tr>
-				<tr>
-					<th>싫어요</th>
-					<td id="DislikeCount">${press.badReactionPoint }</td>
-				</tr>
-				<tr>
-					<th>추천 ${usersReaction }</th>
-					<td>
-						<!-- href="/usr/reactionPoint/doGoodReaction?relTypeCode=article&relId=${param.id }&replaceUri=${rq.currentUri}" -->
-						<button id="likeButton" class="btn btn-outline btn-success" onclick="doGoodReaction(${param.id})">좋아요</button>
+#sub.view .text_w {
+	min-height: 500px;
+	padding: 60px 30px;
+}
 
-						<button id="DislikeButton" class="btn btn-outline btn-error" onclick="doBadReaction(${param.id})">싫어요</button>
-					</td>
-				</tr>
-				<tr>
-					<th>조회수</th>
-					<td>
-						<span class="press-detail__hit-count">${press.hitCount }</span>
-					</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${press.title }</td>
-				</tr>
-				<tr>
-					<th>첨부 이미지</th>
-					<td>
-						<img class="rounded-xl" src="${rq.getImgUri(press.id)}" onerror="${rq.profileFallbackImgOnErrorHtml}"
-							alt="" />
-						<div>${rq.getImgUri(press.id)}</div>
-					</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>
-						<div class="toast-ui-viewer">
-							<script type="text/x-template">${press.body}</script>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="btns mt-5">
-			<button class="btn btn-outline" type="button" onclick="history.back();">뒤로가기</button>
-			<c:if test="${press.userCanModify }">
-				<a class="btn btn-outline" href="../press/modify?id=${press.id }">수정</a>
-			</c:if>
-			<c:if test="${press.userCanDelete }">
-				<a class="btn btn-outline" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
-					href="../press/doDelete?id=${press.id }">삭제</a>
-			</c:if>
-		</div>
-	</div>
-</section>
+#sub.view .title span {
+	display: block;
+	font-size: 16px;
+	color: #666;
+	margin-top: 15px;
+}
 
+.title {
+	font-size: 30px;
+}
 
-<!-- 댓글 -->
-<section class="mt-5 px-3 table-box-detail ml-0">
-	<c:if test="${rq.isLogined() }">
-		<form action="../reply/doWrite" method="POST" onsubmit="ReplyWrite__submit(this); return false;">
-			<input type="hidden" name="relTypeCode" value="press" />
-			<input type="hidden" name="relId" value="${press.id }" />
-			<table class="write-box table-box-1" border="1">
-				<tbody>
-					<tr>
-						<th>내용</th>
-						<td>
-							<textarea class="input input-bordered input-primary w-full max-w-xs" autocomplete="off" placeholder="내용을 입력해주세요"
-								name="body"> </textarea>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input  class="btn btn-outline btn-info" type="submit" value="댓글 작성" />
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
-	</c:if>
-	<c:if test="${!rq.isLogined() }">
-		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a> 하고 댓글 써
-	</c:if>
-	<div>
-		<h2>댓글 리스트(${repliesCount })</h2>
-		<table class="table-box-1" border="1">
-			<colgroup>
-				<col style="width: 10%" />
-				<col style="width: 20%" />
-				<col style="width: 60%" />
-				<col style="width: 10%" />
-			</colgroup>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>날짜</th>
-					<th>내용</th>
-					<th>작성자</th>
-					<th>좋아요</th>
-					<th>싫어요</th>
-					<th>수정</th>
-					<th>삭제</th>
-				</tr>
-			</thead>
-			<tbody>
+.button {
+	background-color: #f2ede2;
+	color: black;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.8rem;
+}
 
-				<c:forEach var="reply" items="${replies }">
-					<tr class="hover">
-						<td>${reply.id }</td>
-						<td>${reply.regDate.substring(0,10) }</td>
-						<td>
-							<span id="reply-${reply.id }">${reply.body }</span>
-							<form method="POST" id="modify-form-${reply.id }" style="display: none;" action="/usr/reply/doModify">
-								<input type="text" value="${reply.body }" name="reply-text-${reply.id }" />
-							</form>
-						</td>
-						<td>${reply.extra__writer }</td>
-						<td>${reply.goodReactionPoint }</td>
-						<td>${reply.badReactionPoint }</td>
-						<td>
-							<c:if test="${reply.userCanModify }">
-								<%-- 							href="../reply/modify?id=${reply.id }" --%>
-								<button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id }" style="white-space: nowrap;"
-									class="btn btn-outline btn-sm">수정</button>
-								<button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;"
-									id="save-btn-${reply.id }" class="btn btn-outline btn-sm">저장</button>
-							</c:if>
-						</td>
-						<td>
-							<c:if test="${reply.userCanDelete }">
-								<a style="white-space: nowrap;" class="btn btn-outline btn-sm"
-									onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;" href="../reply/doDelete?id=${reply.id }">삭제</a>
-							</c:if>
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+.button:hover {
+	background-color: #b3a78f;
+}
+</style>
+
+<div class="greet-bg">
+	<p>
+		IMMusic <br>& Art
+	</p>
+</div>
+
+<div id="sub" class="view">
+	<div class="buttons">
+		<c:if test="${press.userCanModify }">
+			<a class="btn btn-outline text-xs"
+				style="border: none; background-color: transparent;"
+				href="../press/modify?id=${press.id }">수정</a>
+		</c:if>
+		<c:if test="${press.userCanDelete }">
+			<a class="btn btn-outline text-xs"
+				style="border: none; background-color: transparent;"
+				onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
+				href="../press/doDelete?id=${press.id }">삭제</a>
+		</c:if>
 	</div>
 
-</section>
+	<div class="title">
+		<strong>${press.getTitle() }</strong> <span>2024-04-25</span>
+	</div>
+	<div class="text_w">
+		<c:if test="${genfilecnt != 0}">
+			<img class="detailImage" src="${rq.getImgUri(press.id)}"
+				onerror="${rq.profileFallbackImgOnErrorHtml}" alt="" />
+		</c:if>
+		<p class="MsoNoSpacing mt-10" align="center"
+			style="text-align: center">${press.getBody() }</p>
+	</div>
+</div>
 
-<script>
-
-</script>
+<div class="text-center mb-10">
+	<a class="button" href="list">list로 가기</a>
+</div>
 
 <%@ include file="../common/foot.jspf"%>
