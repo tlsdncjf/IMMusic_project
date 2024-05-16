@@ -53,6 +53,18 @@ updateDate = NOW(),
 title = '제목4',
 `body` = '내용4';
 
+INSERT INTO press
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목5',
+`body` = '내용5';
+
+INSERT INTO press
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목6',
+`body` = '내용6';
+
 # member TD 생성
 # (관리자)
 INSERT INTO `member`
@@ -143,191 +155,8 @@ UPDATE press
 SET boardId = 3
 WHERE id = 4;
 
-ALTER TABLE press ADD COLUMN hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `body`;
 
-# reactionPoint 테이블 생성
-CREATE TABLE reactionPoint(
-    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    regDate DATETIME NOT NULL,
-    updateDate DATETIME NOT NULL,
-    memberId INT(10) UNSIGNED NOT NULL,
-    relTypeCode CHAR(50) NOT NULL COMMENT '관련 데이터 타입 코드',
-    relId INT(10) NOT NULL COMMENT '관련 데이터 번호',
-    `point` INT(10) NOT NULL
-);
 
-# reactionPoint 테스트 데이터 생성
-# 1번 회원이 1번 글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 1,
-relTypeCode = 'press',
-relId = 1,
-`point` = -1;
-
-# 1번 회원이 2번 글에 좋아요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 1,
-relTypeCode = 'press',
-relId = 2,
-`point` = 1;
-
-# 2번 회원이 1번 글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'press',
-relId = 1,
-`point` = -1;
-
-# 2번 회원이 2번 글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'press',
-relId = 2,
-`point` = -1;
-
-# 3번 회원이 1번 글에 좋아요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 3,
-relTypeCode = 'press',
-relId = 1,
-`point` = 1;
-
-# press 테이블에 좋아요 관련 컬럼 추가
-ALTER TABLE press ADD COLUMN goodReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
-ALTER TABLE press ADD COLUMN badReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
-
-# update join -> 기존 게시물의 good,bad RP 값을 RP 테이블에서 가져온 데이터로 채운다
-UPDATE press AS P
-INNER JOIN (
-    SELECT RP.relTypeCode,RP.relId,
-    SUM(IF(RP.point > 0, RP.point, 0)) AS goodReactionPoint,
-    SUM(IF(RP.point < 0, RP.point * -1, 0)) AS badReactionPoint
-    FROM reactionPoint AS RP
-    GROUP BY RP.relTypeCode, RP.relId
-) AS RP_SUM
-ON P.id = RP_SUM.relId
-SET P.goodReactionPoint = RP_SUM.goodReactionPoint,
-P.badReactionPoint = RP_SUM.badReactionPoint;
-
-# reply 테이블 생성
-CREATE TABLE reply (
-    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    regDate DATETIME NOT NULL,
-    updateDate DATETIME NOT NULL,
-    memberId INT(10) UNSIGNED NOT NULL,
-    relTypeCode CHAR(50) NOT NULL COMMENT '관련 데이터 타입 코드',
-    relId INT(10) NOT NULL COMMENT '관련 데이터 번호',
-    `body`TEXT NOT NULL
-);
-
-# 2번 회원이 1번 글에 댓글 작성
-INSERT INTO reply
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'press',
-relId = 1,
-`body` = '댓글 1';
-
-# 2번 회원이 1번 글에 댓글 작성
-INSERT INTO reply
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'press',
-relId = 1,
-`body` = '댓글 2';
-
-# 3번 회원이 1번 글에 댓글 작성
-INSERT INTO reply
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 3,
-relTypeCode = 'press',
-relId = 1,
-`body` = '댓글 3';
-
-# 3번 회원이 1번 글에 댓글 작성
-INSERT INTO reply
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'press',
-relId = 2,
-`body` = '댓글 4';
-
-# reply 테이블에 좋아요 관련 컬럼 추가
-ALTER TABLE reply ADD COLUMN goodReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
-ALTER TABLE reply ADD COLUMN badReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
-
-# reactionPoint 테스트 데이터 생성
-# 1번 회원이 1번 댓글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 1,
-relTypeCode = 'reply',
-relId = 1,
-`point` = -1;
-
-# 1번 회원이 2번 댓글에 좋아요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 1,
-relTypeCode = 'reply',
-relId = 2,
-`point` = 1;
-
-# 2번 회원이 1번 댓글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'reply',
-relId = 1,
-`point` = -1;
-
-# 2번 회원이 2번 댓글에 싫어요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-relTypeCode = 'reply',
-relId = 2,
-`point` = -1;
-
-# 3번 회원이 1번 댓글에 좋아요
-INSERT INTO reactionPoint
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 3,
-relTypeCode = 'reply',
-relId = 1,
-`point` = 1;
-
-# update join -> 기존 게시물의 good,bad RP 값을 RP 테이블에서 가져온 데이터로 채운다
-UPDATE reply AS R
-INNER JOIN (
-    SELECT RP.relTypeCode,RP.relId,
-    SUM(IF(RP.point > 0, RP.point, 0)) AS goodReactionPoint,
-    SUM(IF(RP.point < 0, RP.point * -1, 0)) AS badReactionPoint
-    FROM reactionPoint AS RP
-    GROUP BY RP.relTypeCode, RP.relId
-) AS RP_SUM
-ON R.id = RP_SUM.relId
-SET R.goodReactionPoint = RP_SUM.goodReactionPoint,
-R.badReactionPoint = RP_SUM.badReactionPoint;
 
 # 파일 테이블 추가
 CREATE TABLE genFile (
@@ -464,7 +293,7 @@ updateDate = NOW(),
 c_name = '연주수요기관',
 c_email = 'institute@test.com',
 c_phone = '01092923256',
-c_date = '2024-05-12',`cart_item``cash_log`
+c_date = '2024-05-12',
 c_postcode = 12534,
 c_address = '수원시 평평',
 c_inquiry = '문의사항 내용임',
@@ -489,12 +318,6 @@ SELECT MAX(id) FROM press;
 SELECT * FROM press;
 
 SELECT * FROM `member`;
-
-SELECT * FROM `board`;
-
-SELECT * FROM reactionPoint;
-
-SELECT * FROM `reply`;
 
 SELECT * FROM `genFile`;
 

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="CONTACT US"></c:set>
 <%@ include file="../common/head.jspf"%>
@@ -22,18 +23,47 @@ section {
 }
 
 .card--1 .card_img, .card--1 .card_img--hover {
-	background-image:
-		url('https://www.pngarts.com/files/10/Default-Profile-Picture-PNG-Download-Image.png');
+	background-image: url('/resource/원유현.jpg');
+	background-size: cover;
+	/* Adjusts the background image to cover the entire container */
+	background-repeat: no-repeat;
+	/* Ensures the background image is not repeated */
+	/* Additional styles */
+	width: 100%; /* Set a width for the container */
+	height: 235px; /* Set a height for the container */
 }
 
 .card--2 .card_img, .card--2 .card_img--hover {
-	background-image:
-		url('/resource/원유현.jpg');
-	background-size: cover; /* Adjusts the background image to cover the entire container */
-    background-repeat: no-repeat; /* Ensures the background image is not repeated */
-    /* Additional styles */
-    width: 100%; /* Set a width for the container */
-    height: 235px; /* Set a height for the container */
+	background-image: url('/resource/오효주.jpg');
+	background-size: cover;
+	/* Adjusts the background image to cover the entire container */
+	background-repeat: no-repeat;
+	/* Ensures the background image is not repeated */
+	/* Additional styles */
+	width: 100%; /* Set a width for the container */
+	height: 235px; /* Set a height for the container */
+}
+
+.card--3 .card_img, .card--3 .card_img--hover {
+	background-image: url('/resource/강민창.jpg');
+	background-size: cover;
+	/* Adjusts the background image to cover the entire container */
+	background-repeat: no-repeat;
+	/* Ensures the background image is not repeated */
+	/* Additional styles */
+	width: 100%; /* Set a width for the container */
+	height: 235px; /* Set a height for the container */
+}
+
+.card--4 .card_img, .card--4 .card_img--hover {
+	background-image: url('/resource/신우철.jpg');
+	background-size: cover;
+	/* Adjusts the background image to cover the entire container */
+	background-repeat: no-repeat;
+	/* Ensures the background image is not repeated */
+	/* Additional styles */
+	width: 100%; /* Set a width for the container */
+	height: 235px; /* Set a height for the container */
 }
 
 .card_img {
@@ -105,7 +135,7 @@ section {
 }
 
 .blank {
-	height:7px;
+	height: 7px;
 }
 
 .card_subinfo {
@@ -118,7 +148,7 @@ section {
 
 .card_subinfo img {
 	display: inline-block; /* Display inline */
-    vertical-align: middle; /* Align vertically */
+	vertical-align: middle; /* Align vertically */
 	width: 15px;
 	height: 15px;
 	margin-right: 3px;
@@ -155,10 +185,9 @@ section {
 }
 
 /* sns hover */
-.git:hover, 
-.velog:hover {
-    color: #b3a78f;
-    font-weight: 600;
+.git:hover, .velog:hover {
+	color: #b3a78f;
+	font-weight: 600;
 }
 </style>
 
@@ -172,9 +201,9 @@ section {
 
 <section>
 	<div class="cards">
-		<article class="card card--2">
+		<article class="card card--1">
 			<div class="card_info-hover">
-		<!-- 		<svg class="card_like" viewBox="0 0 24 24">
+				<!-- 		<svg class="card_like" viewBox="0 0 24 24">
 		    <path fill="#000000"
 						d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
 		</svg>
@@ -193,17 +222,29 @@ section {
 			<div class="card_info">
 				<span class="card_name">원유현</span>
 				<div class="blank"></div>
-				<div class="card_subinfo"><img src="/resource/birth.png" alt="Icon Image">1994.10.23</div>
-				<div class="card_subinfo"><img src="/resource/phone.png" alt="Icon Image">010-3084-1288</div>
-				<div class="card_subinfo"><img src="/resource/gmail.png" alt="Icon Image">yhwit30@gmail.com</div>
-				<div class="card_subinfo"><a href="https://velog.io/@yhwit30/posts" class="velog" target = "_blank"><img src="/resource/velog.png" alt="Icon Image">velog.io/@yhwit30/posts</a></div>
-				<div class="card_subinfo"><a href="https://github.com/yhwit30" class="git" target = "_blank"><img src="/resource/github.png" alt="Icon Image">github.com/yhwit30</a></div>
+				<div class="card_subinfo">
+					<img src="/resource/birth.png" alt="Icon Image">1994.10.23
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/phone.png" alt="Icon Image">010-3084-1288
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/gmail.png" alt="Icon Image">yhwit30@gmail.com
+				</div>
+				<div class="card_subinfo">
+					<a href="https://velog.io/@yhwit30/posts" class="velog"
+						target="_blank"><img src="/resource/velog.png"
+						alt="Icon Image">velog.io/@yhwit30/posts</a>
+				</div>
+				<div class="card_subinfo">
+					<a href="https://github.com/yhwit30" class="git" target="_blank"><img
+						src="/resource/github.png" alt="Icon Image">github.com/yhwit30</a>
+				</div>
 			</div>
 		</article>
 
-		<article class="card card--1">
-			<div class="card_info-hover">
-			</div>
+		<article class="card card--2">
+			<div class="card_info-hover"></div>
 			<div class="card_img"></div>
 			<a href="#" class="card_link">
 				<div class="card_img--hover"></div>
@@ -211,17 +252,29 @@ section {
 			<div class="card_info">
 				<span class="card_name">오효주</span>
 				<div class="blank"></div>
-				<div class="card_subinfo"><img src="/resource/birth.png" alt="Icon Image">1997.02.06</div>
-				<div class="card_subinfo"><img src="/resource/phone.png" alt="Icon Image">010-7607-0903</div>
-				<div class="card_subinfo"><img src="/resource/gmail.png" alt="Icon Image">555gywn@gmail.com</div>
-				<div class="card_subinfo"><a href="https://velog.io/@ohyo555/posts" class="velog" target = "_blank"><img src="/resource/velog.png" alt="Icon Image">velog.io/@ohyo555/posts</a></div>
-				<div class="card_subinfo"><a href="https://github.com/ohyo555" class="git" target = "_blank"><img src="/resource/github.png" alt="Icon Image">github.com/ohyo555</a></div>
+				<div class="card_subinfo">
+					<img src="/resource/birth.png" alt="Icon Image">1997.02.06
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/phone.png" alt="Icon Image">010-7607-0903
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/gmail.png" alt="Icon Image">555gywn@gmail.com
+				</div>
+				<div class="card_subinfo">
+					<a href="https://velog.io/@ohyo555/posts" class="velog"
+						target="_blank"><img src="/resource/velog.png"
+						alt="Icon Image">velog.io/@ohyo555/posts</a>
+				</div>
+				<div class="card_subinfo">
+					<a href="https://github.com/ohyo555" class="git" target="_blank"><img
+						src="/resource/github.png" alt="Icon Image">github.com/ohyo555</a>
+				</div>
 			</div>
 		</article>
 
-		<article class="card card--1">
-			<div class="card_info-hover">
-			</div>
+		<article class="card card--3">
+			<div class="card_info-hover"></div>
 			<div class="card_img"></div>
 			<a href="#" class="card_link">
 				<div class="card_img--hover"></div>
@@ -229,17 +282,29 @@ section {
 			<div class="card_info">
 				<span class="card_name">강민창</span>
 				<div class="blank"></div>
-				<div class="card_subinfo"><img src="/resource/birth.png" alt="Icon Image">2001.02.19</div>
-				<div class="card_subinfo"><img src="/resource/phone.png" alt="Icon Image">010-7518-3408</div>
-				<div class="card_subinfo"><img src="/resource/gmail.png" alt="Icon Image">itkang0219@gmail.com</div>
-				<div class="card_subinfo"><a href="https://velog.io/@itkang0219/posts" class="velog" target = "_blank"><img src="/resource/velog.png" alt="Icon Image">velog.io/@itkang0219/posts</a></div>
-				<div class="card_subinfo"><a href="https://github.com/itkmc" class="git" target = "_blank"><img src="/resource/github.png" alt="Icon Image">github.com/itkmc</a></div>
+				<div class="card_subinfo">
+					<img src="/resource/birth.png" alt="Icon Image">2001.02.19
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/phone.png" alt="Icon Image">010-7518-3408
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/gmail.png" alt="Icon Image">itkang0219@gmail.com
+				</div>
+				<div class="card_subinfo">
+					<a href="https://velog.io/@itkang0219/posts" class="velog"
+						target="_blank"><img src="/resource/velog.png"
+						alt="Icon Image">velog.io/@itkang0219/posts</a>
+				</div>
+				<div class="card_subinfo">
+					<a href="https://github.com/itkmc" class="git" target="_blank"><img
+						src="/resource/github.png" alt="Icon Image">github.com/itkmc</a>
+				</div>
 			</div>
 		</article>
 
-		<article class="card card--1">
-			<div class="card_info-hover">
-			</div>
+		<article class="card card--4">
+			<div class="card_info-hover"></div>
 			<div class="card_img"></div>
 			<a href="#" class="card_link">
 				<div class="card_img--hover"></div>
@@ -247,11 +312,24 @@ section {
 			<div class="card_info">
 				<span class="card_name">신우철</span>
 				<div class="blank"></div>
-				<div class="card_subinfo"><img src="/resource/birth.png" alt="Icon Image">2000.08.08</div>
-				<div class="card_subinfo"><img src="/resource/phone.png" alt="Icon Image">010-9915-0734</div>
-				<div class="card_subinfo"><img src="/resource/gmail.png" alt="Icon Image">shinwc147369@gmail.com</div>
-				<div class="card_subinfo"><a href="https://velog.io/@shinwc0808/posts" class="velog" target = "_blank"><img src="/resource/velog.png" alt="Icon Image">velog.io/@shinwc0808/posts</a></div>
-				<div class="card_subinfo"><a href="https://github.com/tlsdncjf" class="git" target = "_blank"><img src="/resource/github.png" alt="Icon Image">github.com/tlsdncjf</a></div>
+				<div class="card_subinfo">
+					<img src="/resource/birth.png" alt="Icon Image">2000.08.08
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/phone.png" alt="Icon Image">010-9915-0734
+				</div>
+				<div class="card_subinfo">
+					<img src="/resource/gmail.png" alt="Icon Image">shinwc147369@gmail.com
+				</div>
+				<div class="card_subinfo">
+					<a href="https://velog.io/@shinwc0808/posts" class="velog"
+						target="_blank"><img src="/resource/velog.png"
+						alt="Icon Image">velog.io/@shinwc0808/posts</a>
+				</div>
+				<div class="card_subinfo">
+					<a href="https://github.com/tlsdncjf" class="git" target="_blank"><img
+						src="/resource/github.png" alt="Icon Image">github.com/tlsdncjf</a>
+				</div>
 			</div>
 		</article>
 	</div>
